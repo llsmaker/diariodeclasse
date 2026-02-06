@@ -1,10 +1,18 @@
 {
-  "name": "Diário de Lucimeiri",
+  "name": "Diário Lucimeiri",
   "short_name": "DCL",
+  "description": "Diário de Classe Digital - Lucimeiri",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#fff5f8",
-  "theme_color": "#e91e63",
+  "background_color": "#4a041a",
+  "theme_color": "#4a041a",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAAADrjpsAAAACXBIWXMAAAsTAAALEwEAmpwYAAADG2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuMWI2NWE3OSwgMjAyMi8wNi8xMy0xNzoyMzozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0colucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NQay9FdmVudCMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiIHhtcDpDcmVhdGVEYXRlPSIyMDI0LTA1LTA4VDE1OjMwOjAwLTAzOjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyNC0wNS0wOFQxNTozMDowMC0wMzowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyNC0wNS0wOFQxNTozMDowMC0wMzowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcD1JQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpkNzU0NmY1OC0wZjhjLTQzOGItYmI5Ny1hZjc0OGY5ZWMxZDAiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDozMDU0ZGY1OC0wZjhjLTQzOGItYmI5Ny1hZjc0OGY5ZWMxZDAiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmQ3NTQ2Zj
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAAADnRuK7AAAACXBIWXMAAAsTAAALEwEAmpwYAAABm0lEQVR4nO3YwUrDQBRF0Uv9CHWhDnShLnThX7gX7gR37gR37gT/wa34Uf0Ed4I7oXtXQq1YrAtd6NKpWpM0mThIKEI60YVLJe3MvAkhL3nuzXujSAmFEAghhBBCCCHkd0idvR3f35nU7L297XN6SAn9X8H8O6K1fAnAAV9z6H79BvYAgEitn9Xm2e7uXvXh8VvTz88zAKBvB8C/v5N9f79vAMBvF4B+vYVfC+E37eE3LdCP3sIPtXj7qVrvm9ayO78G6fL7Y2/tjx9TsHZS5DwDc/97srYD7f2NnTADz35q9FZj/rdm7AfO/N3v35/4PZu8GzP/R7N2A+d+avRcw/98/Miofmnsr4P4vZu8GzP/S7N2A+V+avRcwn9/b+py9gzL3AYD735u9FXD/b+zsCWD+W7O3AvO/NXs3YP73Zu/+3P/p7N2A+T+avRsw/1uz9wLm//xHRuVDc28F3P/F7N2A+V+avRsw/0uz9wLm8/Tf1ufsnZS5DwDc/97srYD7f2NnTADz35q9FZj/rdm7AfO/N3v35/4PZu8GzP/R7N2A+d+avRcwn+f/vj5n76TMfQDg/vdm767M/xs7e4K6Gf9WzP/W7N2f+T+avRsw/0fzd3/m/2j27sP8H83effofHxkYm/8j4P9RDfAfo6M+H5x+9C0AAAAASUVORK5CYII=",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
