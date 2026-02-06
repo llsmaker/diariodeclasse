@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diário de Classe de Lucimeiri</title>
     
+    <!-- ÍCONE DCL ROSA EM SVG EMBUTIDO - COMPATÍVEL COM ABAS E PWA -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e91e63'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='Arial, sans-serif' font-weight='900' font-size='42' fill='white'%3EDCL%3C/text%3E%3C/svg%3E">
+    <!-- SUPORTE ADICIONAL PARA IOS -->
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e91e63'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='Arial, sans-serif' font-weight='900' font-size='42' fill='white'%3EDCL%3C/text%3E%3C/svg%3E">
+    
     <link rel="manifest" href="manifest.json">
-    <!-- ÍCONE DCL ROSA EMBUTIDO (BASE64 PNG) -->
-    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAAADrjpsAAAACXBIWXMAAAsTAAALEwEAmpwYAAADG2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuMWI2NWE3OSwgMjAyMi8wNi8xMy0xNzoyMzozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0colucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NQay9FdmVudCMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiIHhtcDpDcmVhdGVEYXRlPSIyMDI0LTA1LTA4VDE1OjMwOjAwLTAzOjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyNC0wNS0wOFQxNTozMDowMC0wMzowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyNC0wNS0wOFQxNTozMDowMC0wMzowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcD1JQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpkNzU0NmY1OC0wZjhjLTQzOGItYmI5Ny1hZjc0OGY5ZWMxZDAiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDozMDU0ZGY1OC0wZjhjLTQzOGItYmI5Ny1hZjc0OGY5ZWMxZDAiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmQ3NTQ2ZjU4LTAmOGMtNDM4Yi1iYjk3LWFmNzQ4ZjllYzFkMCIgc3RFdnQ6d2hlbj0iMjAyNC0wNS0wOFQxNTozMDowMC0wMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+v97O3wAAAnlJREFUaIzt289rE0EUwPFvNo2pSdpKq9ZatVofatWDFz148uLNo8eCBy+CBy+CBy8i+A948C9wES8ePHnxYvXixYMf9SAi9VBrYmubNjG7HjxV6y6S7O7Mzs68D8Zlt8m8D/NmZ968RUrJKAFoA9IB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP/RAfQ/OoD+RwfQ/+gA+h8dQP+jA+h/dAD9jw6g/9EB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP/RAfQ/OoD+RwfQ/+gA+h8dQP+jA+h/dAD9jw6g/9EB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP/RAfQ/OoD+RwfQ/+gA+h8dQP+jA+h/dAD9jw6g/9EB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP/RAfQ/OoD+RwfQ/+gA+h8dQP+jA+h/dAD9jw6g/9EB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP/RAfQ/OoD+RwfQ/+gA+h8dQP+jA+h/dAD9jw6g/9EB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP9RDfAfo6M+H5x+9C0AAAAASUVORK5CYII=">
     <meta name="theme-color" content="#e91e63">
     
     <style>
@@ -21,7 +24,7 @@
         #app { display: flex; width: 100vw; height: 100vh; }
         .col-1 { width: 240px; background: var(--sidebar); color: white; flex-shrink: 0; display: flex; flex-direction: column; }
         .turno-select { width: 90%; margin: 10px auto; padding: 10px; background: #6b0b2b; color: white; border-radius: 10px; border: none; font-weight: 600; }
-        .turma-badge { background: rgba(255,255,255,0.1); padding: 10px; margin: 5px 10px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+        .turma-badge { background: rgba(255,255,255,0.1); padding: 10px; margin: 5px 10px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: 0.2s; }
         .turma-badge.active { background: var(--p); font-weight: 800; }
         .col-2 { width: 300px; background: white; border-right: 1px solid #f8bbd0; display: flex; flex-direction: column; }
         .aluno-card { background: var(--p-light); padding: 12px; margin: 5px 10px; border-radius: 8px; border-left: 4px solid #f06292; cursor: pointer; font-size: 13px; font-weight: 600; position: relative; }
@@ -48,14 +51,15 @@
 <body>
     <div id="auth-screen">
         <div id="auth-login" class="auth-card">
-            <h2 style="color: var(--sidebar)">Diário de Lucimeiri</h2>
+            <h2 style="color: var(--sidebar)">Diário de Classe</h2>
             <input type="text" id="l-user" placeholder="Usuário">
             <input type="password" id="l-pass" placeholder="Senha">
             <button class="auth-btn" onclick="execLogin()">Entrar</button>
-            <p onclick="showAuth('auth-reg')" style="cursor:pointer; font-size:12px; color:var(--p); margin-top:15px">Cadastrar Lucimeiri</p>
+            <!-- BOTÃO ALTERADO PARA APENAS CADASTRAR -->
+            <p onclick="showAuth('auth-reg')" style="cursor:pointer; font-size:12px; color:var(--p); margin-top:15px">Cadastrar</p>
             <p onclick="showAuth('auth-rec')" style="cursor:pointer; font-size:12px; color:#9c27b0; margin-top:10px">Recuperar Senha</p>
         </div>
-        <!-- CADASTRO -->
+
         <div id="auth-reg" class="auth-card hidden">
             <h2 style="color: var(--sidebar)">Novo Registro</h2>
             <input type="text" id="r-user" placeholder="Usuário">
@@ -65,7 +69,7 @@
             <button class="auth-btn" onclick="execReg()">Salvar</button>
             <p onclick="showAuth('auth-login')" style="cursor:pointer; font-size:12px; margin-top:15px">Voltar</p>
         </div>
-        <!-- RECUPERAR -->
+
         <div id="auth-rec" class="auth-card hidden">
             <h2 style="color: var(--sidebar)">Recuperar</h2>
             <div id="rec-step1">
@@ -81,6 +85,7 @@
             <p onclick="location.reload()" style="cursor:pointer; font-size:12px; margin-top:15px">Cancelar</p>
         </div>
     </div>
+
     <div id="app" class="hidden">
         <div class="col-1 no-print">
             <div style="padding:20px; font-weight:bold; text-align:center; border-bottom:1px solid rgba(255,255,255,0.1)">LUCIMEIRI</div>
@@ -92,6 +97,7 @@
             <div style="padding:10px"><button onclick="addTurma()" class="btn-add" style="width:100%; background:white; color:var(--sidebar)">+ Turma</button></div>
             <div id="lista-turmas"></div>
         </div>
+
         <div class="col-2 no-print">
             <div style="padding:15px; border-bottom:1px solid #f8bbd0">
                 <button onclick="addAluno()" class="btn-add" style="width:100%; margin-bottom:10px">CADASTRAR ALUNO</button>
@@ -99,6 +105,7 @@
             </div>
             <div id="lista-alunos" style="overflow-y:auto; flex:1"></div>
         </div>
+
         <div class="col-3" id="print-area">
             <div id="topo-notas" class="hidden header-main no-print">
                 <div style="display:flex; align-items:center; gap:15px">
@@ -121,48 +128,82 @@
             </div>
         </div>
     </div>
+
 <script>
     let db = JSON.parse(localStorage.getItem('edu_db_vfinal_lucimeiri')) || { turmas: [], auth: null };
     let cur = { t: null, a: null };
     const save = () => localStorage.setItem('edu_db_vfinal_lucimeiri', JSON.stringify(db));
+
     function showAuth(id) { document.querySelectorAll('.auth-card').forEach(c => c.classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); }
+    
     function execReg() {
         const u=document.getElementById('r-user').value, p=document.getElementById('r-pass').value, f=document.getElementById('r-phrase').value, a=document.getElementById('r-ans').value;
         if(u && p) { db.auth={u,p,f,a}; save(); alert("Cadastro realizado!"); showAuth('auth-login'); }
     }
+
     function execLogin() {
         const u=document.getElementById('l-user').value, p=document.getElementById('l-pass').value;
-        if(db.auth && u===db.auth.u && p===db.auth.p) { document.getElementById('auth-screen').classList.add('hidden'); document.getElementById('app').classList.remove('hidden'); renderTurmas(); }
-        else alert("Acesso Negado.");
+        if(db.auth && u===db.auth.u && p===db.auth.p) { 
+            document.getElementById('auth-screen').classList.add('hidden'); 
+            document.getElementById('app').classList.remove('hidden'); 
+            renderTurmas(); 
+        } else alert("Acesso Negado.");
     }
+
     function findUser() {
         const u = document.getElementById('rec-user-find').value;
         if(db.auth && u === db.auth.u) {
             document.getElementById('rec-step1').classList.add('hidden');
             document.getElementById('rec-step2').classList.remove('hidden');
-            document.getElementById('display-phrase').innerText = "Sua Pergunta: " + db.auth.f;
+            document.getElementById('display-phrase').innerText = "Pergunta: " + db.auth.f;
         } else alert("Usuário não encontrado.");
     }
+
     function execRec() {
         const a = document.getElementById('rec-ans-check').value, np = document.getElementById('rec-new-pass').value;
         if(a.toLowerCase() === db.auth.a.toLowerCase() && np) { db.auth.p = np; save(); alert("Senha Alterada!"); location.reload(); }
         else alert("Resposta Incorreta.");
     }
+
     function addTurma() { const n=prompt("Nome da Turma:"); if(n) { db.turmas.push({nome:n, turno:document.getElementById('sel-turno').value, materias:[], alunos:[]}); save(); renderTurmas(); } }
+    
     function renderTurmas() {
         const t=document.getElementById('sel-turno').value, div=document.getElementById('lista-turmas'); div.innerHTML='';
         db.turmas.forEach((tr, i) => { if(tr.turno===t) div.innerHTML+=`<div class="turma-badge ${cur.t===i?'active':''}" onclick="setTurma(${i})">${tr.nome}</div>`; });
     }
+
     function setTurma(i) { cur.t=i; cur.a=null; renderTurmas(); renderAlunos(); }
+    
     function addAluno() { const n=prompt("Nome do Aluno:"); if(n && cur.t!==null) { db.turmas[cur.t].alunos.push({nome:n, notas:{}}); save(); renderAlunos(); } }
+    
     function renderAlunos() {
         const div=document.getElementById('lista-alunos'); div.innerHTML=''; if(cur.t===null) return;
         db.turmas[cur.t].alunos.forEach((al, i) => { div.innerHTML+=`<div class="aluno-card ${cur.a===i?'active':''}" onclick="setAluno(${i})">${al.nome.toUpperCase()}</div>`; });
     }
-    function setAluno(i) { cur.a=i; document.getElementById('nome-aluno-header').innerText=db.turmas[cur.t].alunos[i].nome; document.getElementById('topo-notas').classList.remove('hidden'); document.getElementById('workspace-notas').classList.remove('hidden'); renderAlunos(); atualizarMaterias(); }
+
+    function setAluno(i) { 
+        cur.a=i; 
+        document.getElementById('nome-aluno-header').innerText=db.turmas[cur.t].alunos[i].nome; 
+        document.getElementById('topo-notas').classList.remove('hidden'); 
+        document.getElementById('workspace-notas').classList.remove('hidden'); 
+        renderAlunos(); atualizarMaterias(); 
+    }
+
     function addMateria() { const n=prompt("Matéria:"); if(n) { db.turmas[cur.t].materias.push(n); save(); atualizarMaterias(); } }
-    function atualizarMaterias() { const sel=document.getElementById('sel-mat'); sel.innerHTML=db.turmas[cur.t].materias.map(m=>`<option value="${m}">${m}</option>`).join(''); renderNotas(); }
-    function delMateria() { if(confirm("Excluir disciplina?")) { db.turmas[cur.t].materias=db.turmas[cur.t].materias.filter(x=>x!==document.getElementById('sel-mat').value); save(); atualizarMaterias(); } }
+    
+    function atualizarMaterias() { 
+        const sel=document.getElementById('sel-mat'); 
+        sel.innerHTML=db.turmas[cur.t].materias.map(m=>`<option value="${m}">${m}</option>`).join(''); 
+        renderNotas(); 
+    }
+
+    function delMateria() { 
+        if(confirm("Excluir disciplina?")) { 
+            db.turmas[cur.t].materias=db.turmas[cur.t].materias.filter(x=>x!==document.getElementById('sel-mat').value); 
+            save(); atualizarMaterias(); 
+        } 
+    }
+
     function renderNotas() {
         const m=document.getElementById('sel-mat').value; if(!m) return;
         const al=db.turmas[cur.t].alunos[cur.a]; let total=0; document.getElementById('grid-notas').innerHTML='';
@@ -173,17 +214,18 @@
         document.getElementById('total-anual-txt').innerText=`TOTAL: ${total.toFixed(1)} / 100`;
         prepararBoletim();
     }
+
     function addNota(key) {
         const al=db.turmas[cur.t].alunos[cur.a]; if(!al.notas[key]) al.notas[key]=[]; 
         const soma=al.notas[key].reduce((s,n)=>s+parseFloat(n.v),0);
         const d=prompt("Avaliação:"); const v=parseFloat(prompt("Nota:"));
-        if(d && !isNaN(v)) {
-            if((soma+v) <= 25) { al.notas[key].push({d, v}); save(); renderNotas(); }
-            else alert("Valor excedido a 25 pontos!");
-        }
+        if(d && !isNaN(v)) { if((soma+v) <= 25) { al.notas[key].push({d, v}); save(); renderNotas(); } else alert("Valor excedido a 25 pontos!"); }
     }
+
     function delNota(key, ni) { if(confirm("Excluir nota?")) { db.turmas[cur.t].alunos[cur.a].notas[key].splice(ni,1); save(); renderNotas(); } }
+    
     function filtrar() { const v=document.getElementById('busca').value.toLowerCase(); document.querySelectorAll('.aluno-card').forEach(e=>e.style.display=e.innerText.toLowerCase().includes(v)?'block':'none'); }
+    
     function prepararBoletim() {
         const al = db.turmas[cur.t].alunos[cur.a], tr = db.turmas[cur.t];
         let html = `<h2>BOLETIM - ${al.nome.toUpperCase()}</h2><p style="text-align:center">PROFESSORA: LUCIMEIRI</p>
@@ -196,6 +238,7 @@
         });
         document.getElementById('boletim-impresso').innerHTML = html + `</tbody></table>`;
     }
+    
     if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
     window.onload = () => { showAuth('auth-login'); };
 </script>
