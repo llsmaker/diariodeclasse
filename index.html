@@ -3,46 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diário de Classe de Lucimeiri</title>
-    
-    <!-- Ícone DCL Embutido (Favicon) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e91e63'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='central' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='bold' font-size='40'%3EDCL%3C/text%3E%3C/svg%3E">
+    <title>Diário de Lucimeiri</title>
     <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e91e63'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-weight='bold' font-size='40'%3EDCL%3C/text%3E%3C/svg%3E">
     <meta name="theme-color" content="#e91e63">
-
     <style>
         :root { --sidebar: #4a041a; --bg: #fff5f8; --p: #e91e63; --p-light: #fce4ec; --txt: #4a1a2c; --err: #d81b60; }
         body, html { margin: 0; padding: 0; width: 100%; height: 100vh; font-family: 'Inter', sans-serif; overflow: hidden; color: var(--txt); }
         .hidden { display: none !important; }
-
-        /* TELAS DE ACESSO */
         #auth-screen { position: fixed; inset: 0; background: var(--sidebar); display: flex; align-items: center; justify-content: center; z-index: 10000; }
         .auth-card { background: white; padding: 30px; border-radius: 20px; width: 340px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); text-align: center; }
         .auth-btn { width: 100%; padding: 12px; border-radius: 10px; border: none; background: var(--p); color: white; font-weight: 800; cursor: pointer; margin-top: 10px; }
         .auth-card input { width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #f8bbd0; border-radius: 10px; box-sizing: border-box; }
-
-        /* ESTRUTURA APP */
         #app { display: flex; width: 100vw; height: 100vh; }
         .col-1 { width: 240px; background: var(--sidebar); color: white; flex-shrink: 0; display: flex; flex-direction: column; }
-        .turno-select { width: 100%; padding: 10px; background: #6b0b2b; color: white; border: 1px solid #880e4f; border-radius: 10px; font-weight: 600; margin: 10px 0; }
-        .turma-badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); padding: 10px; margin: 5px 0; border-radius: 8px; cursor: pointer; font-size: 13px; }
-        .turma-badge.active { background: var(--p); border-color: var(--p); font-weight: 800; }
-
-        .col-2 { width: 300px; background: white; border-right: 1px solid #f8bbd0; display: flex; flex-direction: column; flex-shrink: 0; }
-        .aluno-card { background: var(--p-light); padding: 10px 14px; margin: 5px 12px; border-radius: 8px; border-left: 4px solid #f06292; cursor: pointer; font-size: 13px; position: relative; color: var(--txt); font-weight: 600; }
-        .aluno-card.active { border-left-color: var(--sidebar); background: #f8bbd0; color: #fff; }
-
+        .turno-select { width: 90%; margin: 10px auto; padding: 10px; background: #6b0b2b; color: white; border-radius: 10px; border: none; font-weight: 600; }
+        .turma-badge { background: rgba(255,255,255,0.1); padding: 10px; margin: 5px 10px; border-radius: 8px; cursor: pointer; font-size: 13px; }
+        .turma-badge.active { background: var(--p); font-weight: 800; }
+        .col-2 { width: 300px; background: white; border-right: 1px solid #f8bbd0; display: flex; flex-direction: column; }
+        .aluno-card { background: var(--p-light); padding: 12px; margin: 5px 10px; border-radius: 8px; border-left: 4px solid #f06292; cursor: pointer; font-size: 13px; font-weight: 600; position: relative; }
+        .aluno-card.active { background: var(--p); color: #fff; }
         .col-3 { flex: 1; background: var(--bg); display: flex; flex-direction: column; overflow: hidden; }
         .header-main { padding: 15px 20px; border-bottom: 1px solid #f8bbd0; display: flex; justify-content: space-between; align-items: center; background: #fff; }
-
-        /* GRID DE NOTAS (VISUAL ORIGINAL DOS CARDS) */
         .grid-bim { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; overflow-y: auto; flex: 1; }
-        .card-bim { background: white; padding: 15px; border-radius: 15px; border-top: 4px solid var(--p); box-shadow: 0 4px 10px rgba(233, 30, 99, 0.1); }
-        .btn-add { background: var(--sidebar); color: white; border: none; border-radius: 6px; padding: 6px 12px; cursor: pointer; font-weight: 800; font-size: 11px; }
-        .btn-del { color: var(--err); cursor: pointer; font-weight: 900; margin-left: 8px; font-style: normal; }
-
+        .card-bim { background: white; padding: 15px; border-radius: 15px; border-top: 4px solid var(--p); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .btn-add { background: var(--sidebar); color: white; border: none; border-radius: 6px; padding: 6px 12px; cursor: pointer; font-size: 11px; font-weight: bold; }
         #boletim-impresso { display: none; }
-
         @media print {
             @page { size: portrait; margin: 1cm; }
             body * { visibility: hidden; }
@@ -51,18 +37,13 @@
             .no-print { display: none !important; }
             #boletim-impresso { display: block !important; width: 100%; color: black; }
             table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-            th, td { border: 1px solid #000; padding: 8px; text-align: center; font-size: 12px; color: #000; }
+            th, td { border: 1px solid #000; padding: 8px; text-align: center; font-size: 12px; }
             th { background: #f2f2f2 !important; }
-            .situacao-ap { color: green !important; font-weight: bold; }
-            .situacao-rp { color: red !important; font-weight: bold; }
         }
     </style>
 </head>
 <body>
-
-    <!-- AUTH SCREEN -->
     <div id="auth-screen">
-        <!-- LOGIN -->
         <div id="auth-login" class="auth-card">
             <h2 style="color: var(--sidebar)">Diário de Lucimeiri</h2>
             <input type="text" id="l-user" placeholder="Usuário">
@@ -71,19 +52,15 @@
             <p onclick="showAuth('auth-reg')" style="cursor:pointer; font-size:12px; color:var(--p); margin-top:15px">Cadastrar Lucimeiri</p>
             <p onclick="showAuth('auth-rec')" style="cursor:pointer; font-size:12px; color:#9c27b0; margin-top:10px">Recuperar Senha</p>
         </div>
-
-        <!-- CADASTRO -->
         <div id="auth-reg" class="auth-card hidden">
             <h2 style="color: var(--sidebar)">Novo Registro</h2>
             <input type="text" id="r-user" placeholder="Usuário">
             <input type="password" id="r-pass" placeholder="Senha">
             <input type="text" id="r-phrase" placeholder="Pergunta Secreta">
             <input type="text" id="r-ans" placeholder="Resposta">
-            <button class="auth-btn" onclick="execReg()">Salvar Professor</button>
-            <p onclick="showAuth('auth-login')" style="cursor:pointer; font-size:12px; margin-top:15px">Voltar ao Login</p>
+            <button class="auth-btn" onclick="execReg()">Salvar</button>
+            <p onclick="showAuth('auth-login')" style="cursor:pointer; font-size:12px; margin-top:15px">Voltar</p>
         </div>
-
-        <!-- RECUPERAR -->
         <div id="auth-rec" class="auth-card hidden">
             <h2 style="color: var(--sidebar)">Recuperar</h2>
             <div id="rec-step1">
@@ -94,42 +71,29 @@
                 <p id="display-phrase" style="font-weight:bold; color:var(--p)"></p>
                 <input type="text" id="rec-ans-check" placeholder="Sua Resposta">
                 <input type="password" id="rec-new-pass" placeholder="Nova Senha">
-                <button class="auth-btn" onclick="execRec()">Redefinir Senha</button>
+                <button class="auth-btn" onclick="execRec()">Redefinir</button>
             </div>
             <p onclick="location.reload()" style="cursor:pointer; font-size:12px; margin-top:15px">Cancelar</p>
         </div>
     </div>
-
-    <!-- APP PRINCIPAL -->
     <div id="app" class="hidden">
         <div class="col-1 no-print">
-            <div style="padding:20px; font-weight:800; text-align:center; border-bottom:1px solid rgba(255,255,255,0.1)">DIÁRIO DE LUCIMEIRI</div>
-            <div style="padding:15px; flex:1; overflow-y:auto">
-                <label style="font-size:10px; color:#f8bbd0">TURNO</label>
-                <select id="sel-turno" onchange="renderTurmas()" class="turno-select">
-                    <option value="Matutino">☀️ Matutino</option>
-                    <option value="Vespertino">🌤️ Vespertino</option>
-                    <option value="Noturno">🌙 Noturno</option>
-                </select>
-                <div style="display:flex; justify-content:space-between; align-items:center; margin: 15px 0 5px 0">
-                    <span style="font-size:10px; color:#f8bbd0">TURMAS</span>
-                    <button onclick="addTurma()" class="btn-add" style="background: white; color: var(--sidebar)">+</button>
-                </div>
-                <div id="lista-turmas"></div>
-            </div>
+            <div style="padding:20px; font-weight:bold; text-align:center; border-bottom:1px solid rgba(255,255,255,0.1)">LUCIMEIRI</div>
+            <select id="sel-turno" onchange="renderTurmas()" class="turno-select">
+                <option value="Matutino">☀️ Matutino</option>
+                <option value="Vespertino">🌤️ Vespertino</option>
+                <option value="Noturno">🌙 Noturno</option>
+            </select>
+            <div style="padding:10px"><button onclick="addTurma()" class="btn-add" style="width:100%; background:white; color:var(--sidebar)">+ Turma</button></div>
+            <div id="lista-turmas"></div>
         </div>
-
         <div class="col-2 no-print">
-            <div style="padding: 15px; border-bottom: 1px solid #f8bbd0; background: #fff;">
-                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 10px;">
-                    <span style="font-weight:800; font-size: 11px; color: var(--p)">ALUNOS</span>
-                    <button onclick="addAluno()" class="btn-add">CADASTRAR</button>
-                </div>
-                <input type="text" id="busca" placeholder="Filtrar nome..." onkeyup="filtrar()" style="width:100%; padding:8px; border-radius:8px; border:1px solid #f8bbd0; box-sizing:border-box">
+            <div style="padding:15px; border-bottom:1px solid #f8bbd0">
+                <button onclick="addAluno()" class="btn-add" style="width:100%; margin-bottom:10px">CADASTRAR ALUNO</button>
+                <input type="text" id="busca" placeholder="Filtrar..." onkeyup="filtrar()" style="width:100%; padding:8px; border-radius:8px; border:1px solid #f8bbd0">
             </div>
-            <div id="lista-alunos" style="overflow-y:auto; flex:1; padding-top:10px"></div>
+            <div id="lista-alunos" style="overflow-y:auto; flex:1"></div>
         </div>
-
         <div class="col-3" id="print-area">
             <div id="topo-notas" class="hidden header-main no-print">
                 <div style="display:flex; align-items:center; gap:15px">
@@ -143,7 +107,6 @@
                     <button onclick="location.reload()" style="background:#fff; color:var(--err); border:1px solid var(--err); padding:10px; border-radius:8px; cursor:pointer;">Sair</button>
                 </div>
             </div>
-            
             <div id="workspace-notas" class="hidden" style="flex:1; display:flex; flex-direction:column">
                 <div class="grid-bim no-print" id="grid-notas"></div>
                 <div id="boletim-impresso"></div>
@@ -153,33 +116,20 @@
             </div>
         </div>
     </div>
-
 <script>
-    // --- ESTADO E DATABASE ---
-    let db = JSON.parse(localStorage.getItem('edu_db_lucimeiri_vFinal')) || { turmas: [], auth: null };
+    let db = JSON.parse(localStorage.getItem('edu_db_vfinal_lucimeiri')) || { turmas: [], auth: null };
     let cur = { t: null, a: null };
-    const save = () => localStorage.setItem('edu_db_lucimeiri_vFinal', JSON.stringify(db));
-
-    // --- AUTENTICAÇÃO E RECUPERAÇÃO ---
-    function showAuth(id) { 
-        document.querySelectorAll('.auth-card').forEach(c => c.classList.add('hidden'));
-        document.getElementById(id).classList.remove('hidden');
-    }
-
+    const save = () => localStorage.setItem('edu_db_vfinal_lucimeiri', JSON.stringify(db));
+    function showAuth(id) { document.querySelectorAll('.auth-card').forEach(c => c.classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); }
     function execReg() {
         const u=document.getElementById('r-user').value, p=document.getElementById('r-pass').value, f=document.getElementById('r-phrase').value, a=document.getElementById('r-ans').value;
-        if(u && p && a) { db.auth={u,p,f,a}; save(); alert("Cadastro Lucimeiri realizado!"); showAuth('auth-login'); }
+        if(u && p) { db.auth={u,p,f,a}; save(); alert("Cadastro realizado!"); showAuth('auth-login'); }
     }
-
     function execLogin() {
         const u=document.getElementById('l-user').value, p=document.getElementById('l-pass').value;
-        if(db.auth && u===db.auth.u && p===db.auth.p) {
-            document.getElementById('auth-screen').classList.add('hidden');
-            document.getElementById('app').classList.remove('hidden');
-            renderTurmas();
-        } else alert("Usuário ou senha incorretos.");
+        if(db.auth && u===db.auth.u && p===db.auth.p) { document.getElementById('auth-screen').classList.add('hidden'); document.getElementById('app').classList.remove('hidden'); renderTurmas(); }
+        else alert("Acesso Negado.");
     }
-
     function findUser() {
         const u = document.getElementById('rec-user-find').value;
         if(db.auth && u === db.auth.u) {
@@ -188,90 +138,61 @@
             document.getElementById('display-phrase').innerText = "Sua Pergunta: " + db.auth.f;
         } else alert("Usuário não encontrado.");
     }
-
     function execRec() {
         const a = document.getElementById('rec-ans-check').value, np = document.getElementById('rec-new-pass').value;
-        if(a.toLowerCase() === db.auth.a.toLowerCase() && np) {
-            db.auth.p = np; save(); alert("Senha Alterada com Sucesso!"); location.reload();
-        } else alert("Resposta Incorreta.");
+        if(a.toLowerCase() === db.auth.a.toLowerCase() && np) { db.auth.p = np; save(); alert("Senha Alterada!"); location.reload(); }
+        else alert("Resposta Incorreta.");
     }
-
-    // --- GESTÃO ACADÊMICA ---
     function addTurma() { const n=prompt("Nome da Turma:"); if(n) { db.turmas.push({nome:n, turno:document.getElementById('sel-turno').value, materias:[], alunos:[]}); save(); renderTurmas(); } }
-    
     function renderTurmas() {
         const t=document.getElementById('sel-turno').value, div=document.getElementById('lista-turmas'); div.innerHTML='';
         db.turmas.forEach((tr, i) => { if(tr.turno===t) div.innerHTML+=`<div class="turma-badge ${cur.t===i?'active':''}" onclick="setTurma(${i})">${tr.nome}</div>`; });
     }
-
     function setTurma(i) { cur.t=i; cur.a=null; renderTurmas(); renderAlunos(); }
-    
     function addAluno() { const n=prompt("Nome do Aluno:"); if(n && cur.t!==null) { db.turmas[cur.t].alunos.push({nome:n, notas:{}}); save(); renderAlunos(); } }
-    
     function renderAlunos() {
         const div=document.getElementById('lista-alunos'); div.innerHTML=''; if(cur.t===null) return;
-        db.turmas[cur.t].alunos.forEach((al, i) => { 
-            div.innerHTML+=`<div class="aluno-card ${cur.a===i?'active':''}" onclick="setAluno(${i})">${al.nome.toUpperCase()}</div>`; 
-        });
+        db.turmas[cur.t].alunos.forEach((al, i) => { div.innerHTML+=`<div class="aluno-card ${cur.a===i?'active':''}" onclick="setAluno(${i})">${al.nome.toUpperCase()}</div>`; });
     }
-
-    function setAluno(i) { 
-        cur.a=i; 
-        document.getElementById('nome-aluno-header').innerText=db.turmas[cur.t].alunos[i].nome;
-        document.getElementById('topo-notas').classList.remove('hidden');
-        document.getElementById('workspace-notas').classList.remove('hidden');
-        renderAlunos(); atualizarMaterias(); 
-    }
-
-    function addMateria() { const n=prompt("Nome da Matéria:"); if(n) { db.turmas[cur.t].materias.push(n); save(); atualizarMaterias(); } }
+    function setAluno(i) { cur.a=i; document.getElementById('nome-aluno-header').innerText=db.turmas[cur.t].alunos[i].nome; document.getElementById('topo-notas').classList.remove('hidden'); document.getElementById('workspace-notas').classList.remove('hidden'); renderAlunos(); atualizarMaterias(); }
+    function addMateria() { const n=prompt("Matéria:"); if(n) { db.turmas[cur.t].materias.push(n); save(); atualizarMaterias(); } }
     function atualizarMaterias() { const sel=document.getElementById('sel-mat'); sel.innerHTML=db.turmas[cur.t].materias.map(m=>`<option value="${m}">${m}</option>`).join(''); renderNotas(); }
     function delMateria() { if(confirm("Excluir disciplina?")) { db.turmas[cur.t].materias=db.turmas[cur.t].materias.filter(x=>x!==document.getElementById('sel-mat').value); save(); atualizarMaterias(); } }
-
     function renderNotas() {
         const m=document.getElementById('sel-mat').value; if(!m) return;
         const al=db.turmas[cur.t].alunos[cur.a]; let total=0; document.getElementById('grid-notas').innerHTML='';
         for(let b=1; b<=4; b++) {
-            const key=`${m}_b${b}`, notas=al.notas[key] || []; 
-            const soma=notas.reduce((s,n)=>s+parseFloat(n.v),0); total+=soma;
-            document.getElementById('grid-notas').innerHTML+=`<div class="card-bim"><b>${b}º BIMESTRE</b> <button onclick="addNota('${key}')" class="btn-add">+</button><div style="font-size:12px; margin:10px 0; height:60px; overflow-y:auto">${notas.map((n, ni)=>`<div>${n.d}: ${n.v} <i class="btn-del" onclick="delNota('${key}',${ni})">×</i></div>`).join('')}</div><div style="text-align:right; font-weight:800; color:var(--p)">SOMA: ${soma.toFixed(1)}/25</div></div>`;
+            const key=`${m}_b${b}`, notas=al.notas[key] || []; const soma=notas.reduce((s,n)=>s+parseFloat(n.v),0); total+=soma;
+            document.getElementById('grid-notas').innerHTML+=`<div class="card-bim"><b>${b}º BIM</b> <button onclick="addNota('${key}')" class="btn-add">+</button><div style="font-size:12px; margin:10px 0; height:60px; overflow-y:auto">${notas.map((n, ni)=>`<div>${n.d}: ${n.v} <i onclick="delNota('${key}',${ni})" style="color:red; cursor:pointer">x</i></div>`).join('')}</div><div style="text-align:right; font-weight:800; color:var(--p)">SOMA: ${soma.toFixed(1)}/25</div></div>`;
         }
         document.getElementById('total-anual-txt').innerText=`TOTAL: ${total.toFixed(1)} / 100`;
         prepararBoletim();
     }
-
     function addNota(key) {
         const al=db.turmas[cur.t].alunos[cur.a]; if(!al.notas[key]) al.notas[key]=[]; 
         const soma=al.notas[key].reduce((s,n)=>s+parseFloat(n.v),0);
-        const d=prompt("Avaliação (Ex: Prova):"); const v=parseFloat(prompt("Nota:"));
+        const d=prompt("Avaliação:"); const v=parseFloat(prompt("Nota:"));
         if(d && !isNaN(v)) {
             if((soma+v) <= 25) { al.notas[key].push({d, v}); save(); renderNotas(); }
             else alert("Valor excedido a 25 pontos!");
         }
     }
-
     function delNota(key, ni) { if(confirm("Excluir nota?")) { db.turmas[cur.t].alunos[cur.a].notas[key].splice(ni,1); save(); renderNotas(); } }
-    
     function filtrar() { const v=document.getElementById('busca').value.toLowerCase(); document.querySelectorAll('.aluno-card').forEach(e=>e.style.display=e.innerText.toLowerCase().includes(v)?'block':'none'); }
-
     function prepararBoletim() {
         const al = db.turmas[cur.t].alunos[cur.a], tr = db.turmas[cur.t];
-        let html = `<h2>BOLETIM ESCOLAR - ${al.nome.toUpperCase()}</h2><p style="text-align:center">TURMA: ${tr.nome} | PROFESSORA: LUCIMEIRI</p>
+        let html = `<h2>BOLETIM - ${al.nome.toUpperCase()}</h2><p style="text-align:center">PROFESSORA: LUCIMEIRI</p>
                     <table><thead><tr><th>MATÉRIA</th><th>1ºB</th><th>2ºB</th><th>3ºB</th><th>4ºB</th><th>TOTAL</th><th>SITUAÇÃO</th></tr></thead><tbody>`;
         tr.materias.forEach(m => {
             const b1=(al.notas[m+'_b1']||[]).reduce((s,n)=>s+n.v,0), b2=(al.notas[m+'_b2']||[]).reduce((s,n)=>s+n.v,0);
             const b3=(al.notas[m+'_b3']||[]).reduce((s,n)=>s+n.v,0), b4=(al.notas[m+'_b4']||[]).reduce((s,n)=>s+n.v,0);
             const total = b1+b2+b3+b4;
-            const sit = total >= 70 ? '<span class="situacao-ap">APROVADO</span>' : '<span class="situacao-rp">REPROVADO</span>';
-            html += `<tr><td>${m.toUpperCase()}</td><td>${b1.toFixed(1)}</td><td>${b2.toFixed(1)}</td><td>${b3.toFixed(1)}</td><td>${b4.toFixed(1)}</td><td><b>${total.toFixed(1)}</b></td><td>${sit}</td></tr>`;
+            html += `<tr><td>${m.toUpperCase()}</td><td>${b1.toFixed(1)}</td><td>${b2.toFixed(1)}</td><td>${b3.toFixed(1)}</td><td>${b4.toFixed(1)}</td><td><b>${total.toFixed(1)}</b></td><td>${total>=70?'APROVADO':'REPROVADO'}</td></tr>`;
         });
         document.getElementById('boletim-impresso').innerHTML = html + `</tbody></table>`;
     }
-
-    // --- SERVICE WORKER PWA ---
-    if ('serviceWorker' in navigator) { 
-        navigator.serviceWorker.register('sw.js').catch(() => console.log("PWA offline")); 
-    }
-    window.onload = () => { if(!db.auth) showAuth('auth-reg'); else showAuth('auth-login'); };
+    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
+    window.onload = () => { showAuth('auth-login'); };
 </script>
 </body>
 </html>
