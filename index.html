@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diário de Classe de Lucimeiri</title>
+    
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e91e63'/%3E%3Ctext x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial, sans-serif' font-weight='bold' font-size='40'%3EDCL%3C/text%3E%3C/svg%3E">
+    <!-- ÍCONE DCL ROSA EMBUTIDO (BASE64 PNG) -->
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAAADrjpsAAAACXBIWXMAAAsTAAALEwEAmpwYAAADG2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4yLWMwMDAgNzkuMWI2NWE3OSwgMjAyMi8wNi8xMy0xNzoyMzozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0colucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NQay9FdmVudCMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiIHhtcDpDcmVhdGVEYXRlPSIyMDI0LTA1LTA4VDE1OjMwOjAwLTAzOjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyNC0wNS0wOFQxNTozMDowMC0wMzowMCIgeG1wOk1ldGFkYXRhRGF0ZT0iMjAyNC0wNS0wOFQxNTozMDowMC0wMzowMCIgZGM6Zm9ybWF0PSJpbWFnZS9wbmciIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiIHBob3Rvc2hvcD1JQ0NQcm9maWxlPSJzUkdCIElFQzYxOTY2LTIuMSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpkNzU0NmY1OC0wZjhjLTQzOGItYmI5Ny1hZjc0OGY5ZWMxZDAiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDozMDU0ZGY1OC0wZjhjLTQzOGItYmI5Ny1hZjc0OGY5ZWMxZDAiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOmQ3NTQ2ZjU4LTAmOGMtNDM4Yi1iYjk3LWFmNzQ4ZjllYzFkMCIgc3RFdnQ6d2hlbj0iMjAyNC0wNS0wOFQxNTozMDowMC0wMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjAgKE1hY2ludG9zaCkiLz4gPC9yZGY6U2VxPiA8L3htcE1NOkhpc3Rvcnk+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+v97O3wAAAnlJREFUaIzt289rE0EUwPFvNo2pSdpKq9ZatVofatWDFz148uLNo8eCBy+CBy+CBy8i+A948C9wES8ePHnxYvXixYMf9SAi9VBrYmubNjG7HjxV6y6S7O7Mzs68D8Zlt8m8D/NmZ968RUrJKAFoA9IB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP/RAfQ/OoD+RwfQ/+gA+h8dQP+jA+h/dAD9jw6g/9EB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP/RAfQ/OoD+RwfQ/+gA+h8dQP+jA+h/dAD9jw6g/9EB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP/RAfQ/OoD+RwfQ/+gA+h8dQP+jA+h/dAD9jw6g/9EB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP/RAfQ/OoD+RwfQ/+gA+h8dQP+jA+h/dAD9jw6g/9EB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP/RAfQ/OoD+RwfQ/+gA+h8dQP+jA+h/dAD9jw6g/9EB9D86gP5HB9D/6AD6Hx1A/6MD6H90AP2PDqD/0QH0PzqA/kcH0P/oAPofHUD/owPof3QA/Y8OoP9RDfAfo6M+H5x+9C0AAAAASUVORK5CYII=">
     <meta name="theme-color" content="#e91e63">
+    
     <style>
         :root { --sidebar: #4a041a; --bg: #fff5f8; --p: #e91e63; --p-light: #fce4ec; --txt: #4a1a2c; --err: #d81b60; }
         body, html { margin: 0; padding: 0; width: 100%; height: 100vh; font-family: 'Inter', sans-serif; overflow: hidden; color: var(--txt); }
@@ -52,6 +55,7 @@
             <p onclick="showAuth('auth-reg')" style="cursor:pointer; font-size:12px; color:var(--p); margin-top:15px">Cadastrar Lucimeiri</p>
             <p onclick="showAuth('auth-rec')" style="cursor:pointer; font-size:12px; color:#9c27b0; margin-top:10px">Recuperar Senha</p>
         </div>
+        <!-- CADASTRO -->
         <div id="auth-reg" class="auth-card hidden">
             <h2 style="color: var(--sidebar)">Novo Registro</h2>
             <input type="text" id="r-user" placeholder="Usuário">
@@ -61,6 +65,7 @@
             <button class="auth-btn" onclick="execReg()">Salvar</button>
             <p onclick="showAuth('auth-login')" style="cursor:pointer; font-size:12px; margin-top:15px">Voltar</p>
         </div>
+        <!-- RECUPERAR -->
         <div id="auth-rec" class="auth-card hidden">
             <h2 style="color: var(--sidebar)">Recuperar</h2>
             <div id="rec-step1">
@@ -135,7 +140,7 @@
         if(db.auth && u === db.auth.u) {
             document.getElementById('rec-step1').classList.add('hidden');
             document.getElementById('rec-step2').classList.remove('hidden');
-            document.getElementById('display-phrase').innerText = "Pergunta: " + db.auth.f;
+            document.getElementById('display-phrase').innerText = "Sua Pergunta: " + db.auth.f;
         } else alert("Usuário não encontrado.");
     }
     function execRec() {
@@ -181,7 +186,7 @@
     function filtrar() { const v=document.getElementById('busca').value.toLowerCase(); document.querySelectorAll('.aluno-card').forEach(e=>e.style.display=e.innerText.toLowerCase().includes(v)?'block':'none'); }
     function prepararBoletim() {
         const al = db.turmas[cur.t].alunos[cur.a], tr = db.turmas[cur.t];
-        let html = `<h2>BOLETIM ESCOLAR - ${al.nome.toUpperCase()}</h2><p style="text-align:center">PROFESSORA: LUCIMEIRI</p>
+        let html = `<h2>BOLETIM - ${al.nome.toUpperCase()}</h2><p style="text-align:center">PROFESSORA: LUCIMEIRI</p>
                     <table><thead><tr><th>MATÉRIA</th><th>1ºB</th><th>2ºB</th><th>3ºB</th><th>4ºB</th><th>TOTAL</th><th>SITUAÇÃO</th></tr></thead><tbody>`;
         tr.materias.forEach(m => {
             const b1=(al.notas[m+'_b1']||[]).reduce((s,n)=>s+n.v,0), b2=(al.notas[m+'_b2']||[]).reduce((s,n)=>s+n.v,0);
