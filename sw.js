@@ -1,5 +1,5 @@
 const CACHE_NAME = 'dcl-v1';
-const assets = ['./', 'index.html'];
+const assets = ['./', 'index.html', 'manifest.json'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(

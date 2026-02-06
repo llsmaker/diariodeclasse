@@ -1,16 +1,17 @@
-{{
+{
   "name": "Diário de Classe Lucimeiri",
   "short_name": "DCL",
-  "start_url": ".",
+  "description": "Sistema de Gestão Escolar",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#4a041a",
   "theme_color": "#e91e63",
   "icons": [
     {
-      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e91e63'/%3E%3Ctext x='50%25' y='52%25' dominant-baseline='central' text-anchor='middle' font-family='Arial, sans-serif' font-weight='900' font-size='42' fill='white'%3EDCL%3C/text%3E%3C/svg%3E",
-      "sizes": "192x192 512x512",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAAADnRuK7AAAACXBIWXMAAAsTAAALEwEAmpwYAAABm0lEQVR4nO3YwUrDQBRF0Uv9CHWhDnShLnThX7gX7gR37gR37gT/wa34Uf0Ed4I7oXtXQq1YrAtd6NKpWpM0mThIKEI60YVLJe3MvAkhL3nuzXujSAmFEAghhBBCCCHkd0idvR3f35nU7L297XN6SAn9X8H8O6K1fAnAAV9z6H79BvYAgEitn9Xm2e7uXvXh8VvTz88zAKBvB8C/v5N9f79vAMBvF4B+vYVfC+E37eE3LdCP3sIPtXj7qVrvm9ayO78G6fL7Y2P7Y8fU7B2UuQ8A3P/e7K2A+39jZ08A89+avRWY/63ZuwHzvzd79+f+D2bvBsz/0ezdgPnfmr0XMP/fPzIqH5p7K+D+L2bvBsz/0uzdgPlfmr0XMP+n97Y+Z++gzH0A4P73Zm8F3P8bO3sCmP/W7K3A/G/N3g2Y/73Zuz/3fzp7N2D+j2bvBsz/1uy9gPn//pFR+dDcWwH3fzF7N2D+l2bvBsz/0uzdgPk/vbf1OXsHZe4DAPe/N3sr4P7f2NkTAPOEEAghhBBCCCHkd/wB+nB1p7O9n0EAAAAASUVORK5CYII=",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
     }
   ]
 }
