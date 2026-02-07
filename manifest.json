@@ -7,10 +7,9 @@
   "theme_color": "#4a041a",
   "icons": [
     {
-      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlS4LpAAAAG1BMVEUAAABKBBpKBBoYBBofBBoYBBoeBBoYBBofBBoY7NImAAAACHRSTlMAECBAQEBAQH6S0YIAAABRSURBVHic7cEBDQAAAMKg909tDwcUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4NcAK4AAAe7U6nkAAAAASUVORK5CYII=",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
+      "type": "image/png"
     }
   ]
 }
