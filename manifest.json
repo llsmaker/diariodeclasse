@@ -1,16 +1,16 @@
 {
   "name": "Diário de Classe de Lucimeiri",
   "short_name": "Diário DCL",
-  "start_url": "index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#4a041a",
   "theme_color": "#4a041a",
   "icons": [
     {
       "src": "icon.svg",
-      "sizes": "any",
+      "sizes": "512x512",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
