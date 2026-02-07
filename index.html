@@ -6,6 +6,16 @@
     <title>Diário de Classe de Lucimeiri</title>
 
     <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    // Usar o caminho relativo para funcionar no subdomínio do GitHub
+    navigator.serviceWorker.register('./sw.js')
+      .then(() => console.log("SW Ativo"))
+      .catch(err => console.error("Erro SW:", err));
+  }
+</script>
+
 
     
 <script>
@@ -285,6 +295,7 @@
 </script>
 </body>
 </html>
+
 
 
 
