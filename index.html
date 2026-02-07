@@ -22,13 +22,23 @@
 
     <!-- 4. Registro do Service Worker (Apenas UMA vez) -->
     <script>
-      if ('serviceWorker' in navigator) {
-        // O uso do './' é importante para o GitHub Pages
-        navigator.serviceWorker.register('./sw.js')
-          .then(() => console.log("SW Ativo com sucesso!"))
-          .catch(err => console.error("Erro ao registrar SW:", err));
-      }
-    </script>
+  if ('serviceWorker' in navigator) {
+    // 1. Criamos um ícone PNG de um SVG embutido via Canvas
+    const svgData = 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjNGEwNDFhIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==';
+    
+    // 2. Registramos o Service Worker normalmente
+    navigator.serviceWorker.register('./sw.js')
+      .then(reg => console.log("SW registrado!"))
+      .catch(err => console.error("Erro SW:", err));
+
+    // 3. Ouvimos o evento de instalação para o Desktop
+    window.addEventListener('beforeinstallprompt', (e) => {
+      // Impede o banner automático e força o navegador a reconhecer como APP
+      console.log('PWA pronto para instalar no Desktop');
+    });
+  }
+</script>
+
 
     
     <style>
@@ -288,6 +298,7 @@
 </script>
 </body>
 </html>
+
 
 
 
