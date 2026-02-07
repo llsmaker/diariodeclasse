@@ -16,9 +16,10 @@
     },
     {
       "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAAADrjpsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAByUlEQVR4nO2YwUrDMBRF79t2I+hG3AhunLgT3LkT3LkT3Anu3Anu/An+hD/Bn+BO6N6VUCsW60IXLpWqSUnTZOIgoQjpSiculbQz8yaEvOS9N+8NSYQQCCGEEEIIIeR3SJ29Hd/fmdTsvb3tc3pICf1fwfw7orV8CcABX3Pofv0G9gCASO2f1ebZ7u5e9eHxW9PPzzMAoG8HwL+/k31/v28AwG8XgH69hV8L4Tft4Tct0I/ewg+1ePupWu+b1rI7vwbp8vtjY/tjx9TsHZS5DwDc/97srYD7f2NnTADz35q9FZj/rdm7AfO/N3v35/4PZu8GzP/R7N2A+d+avRcwn9/b+py9gzL3AYD735u9FXD/b+zsCWD+W7O3AvO/NXs3YP73Zu/+3P/p7N2A+j2bvBsz/1uy9gPn//pHRuVDc28F3P/F7N2A+l2bvBsz/0uzdgPk/vbf1OXsHZe4DAPe/N3sr4P7f2NkTAPOEEAghhBBCCCHkd/wB+nB1p7O9n0EAAAAASUVORK5CYII=",
-      "sizes": "96x96",
+      "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     }
   ]
 }
+
