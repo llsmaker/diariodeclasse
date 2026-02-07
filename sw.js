@@ -1,18 +1,22 @@
-// Força a ativação imediata para o Chrome reconhecer o PWA no PC
-self.addEventListener('install', (event) => {
-  self.skipWaiting();
+const cacheName = 'dcl-v1'; // Mude o v1 se quiser forçar atualização depois
+
+self.addEventListener('install', e => {
+  self.skipWaiting(); // Força a instalação imediata no PC
+  e.waitUntil(
+    caches.open(cacheName).then(cache => cache.addAll([
+      './',
+      './index.html',
+      './manifest.json'
+    ]))
+  );
 });
 
-self.addEventListener('activate', (event) => {
-  event.waitUntil(clients.claim());
+self.addEventListener('activate', e => {
+  e.waitUntil(clients.claim()); // Assume o controle do site na hora
 });
 
-/** 
- * O Chrome Desktop EXIGE este evento 'fetch' para liberar o botão 
- * de instalação e usar o ícone bordô do manifest.
- */
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    fetch(event.request).catch(() => new Response("DCL Offline"))
+self.addEventListener('fetch', e => {
+  e.respondWith(
+    caches.match(e.request).then(res => res || fetch(e.request))
   );
 });
