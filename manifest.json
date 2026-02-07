@@ -1,18 +1,17 @@
 {
   "name": "Diário Lucimeiri",
   "short_name": "DCL",
-  "description": "Diário de Classe Digital - Lucimeiri",
+  "description": "Diário de Classe de Lucimeiri",
   "start_url": "index.html",
   "display": "standalone",
   "background_color": "#4a041a",
   "theme_color": "#4a041a",
-  "orientation": "portrait",
   "icons": [
     {
-      "src": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAYAAADnRuK7AAAACXBIWXMAAAsTAAALEwEAmpwYAAABm0lEQVR4nO3YwUrDQBRF0Uv9CHWhDnShLnThX7gX7gR37gR37gT/wa34Uf0Ed4I7oXtXQq1YrAtd6NKpWpM0mThIKEI60YVLJe3MvAkhL3nuzXujSAmFEAghhBBCCCHkd0idvR3f35nU7L297XN6SAn9X8H8O6K1fAnAAV9z6H79BvYAgEitn9Xm2e7uXvXh8VvTz88zAKBvB8C/v5N9f79vAMBvF4B+vYVfC+E37eE3LdCP3sIPtXj7qVrvm9ayO78G6fL7Y2/tjx9TsHZS5DwDc/97srYD7f2NnTADz35q9FZj/rdm7AfO/N3v35/4PZu8GzP/R7N2A+d+avRcw/98/Miofmnsr4P4vZu8GzP/S7N2A+V+avRcwn9/b+py9gzL3AYD735u9FXD/b+zsCWD+W7O3AvO/NXs3YP73Zu/+3P/p7N2A+T+avRsw/1uz9wLm//xHRuVDc28F3P/F7N2A+V+avRsw/0uz9wLm8/Tf1ufsnZS5DwDc/97srYD7f2NnTADz35q9FZj/rdm7AfO/N3v35/4PZu8GzP/R7N2A+d+avRcwn+f/vj5n76TMfQDg/vdm767M/xs7e4K6Gf9WzP/W7N2f+T+avRsw/0fzd3/m/2j27sP8H83effofHxkYm/8j4P9RDfAfo6M+H5x+9C0AAAAASUVORK5CYII=",
-      "sizes": "144x144",
-      "type": "image/png",
-      "purpose": "any"
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjNGEwNDFhIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ]
 }
