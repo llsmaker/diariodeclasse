@@ -1,25 +1,17 @@
-// Ícone DCL Bordô convertido para PNG Base64
-const ICON_DATA = 'iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAYAAABS...'; // (Insira aqui sua string de ícone PNG)
-
-function getIconBlob(base64) {
-  const byteCharacters = atob(base64);
-  const byteNumbers = new Array(byteCharacters.length);
-  for (let i = 0; i < byteCharacters.length; i++) {
-    byteNumbers[i] = byteCharacters.charCodeAt(i);
-  }
-  return new Blob([new Uint8Array(byteNumbers)], { type: 'image/png' });
-}
+// Seu SVG embutido (Bordô com DCL em branco)
+const SVG_ICON = `<svg xmlns="http://www.w3.org" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#4a041a"/><text x="50" y="65" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="white" text-anchor="middle">DCL</text></svg>`;
 
 self.addEventListener('fetch', (event) => {
-  // Entrega o ícone sempre que o Chrome/Windows solicitar
-  if (event.request.url.includes('icon-192.png') || event.request.url.includes('icon-512.png')) {
+  // Se o navegador pedir o icon.svg, o SW responde com o texto acima
+  if (event.request.url.includes('icon.svg')) {
     event.respondWith(
-      new Response(getIconBlob(ICON_DATA), {
-        headers: { 'Content-Type': 'image/png', 'Cache-Control': 'public, max-age=31536000' }
+      new Response(SVG_ICON, {
+        headers: { 'Content-Type': 'image/svg+xml' }
       })
     );
   }
 });
 
+// Ativação rápida
 self.addEventListener('install', () => self.skipWaiting());
-self.addEventListener('activate', (e) => e.waitUntil(clients.claim()));
+self.addEventListener('activate', (event) => event.waitUntil(clients.claim()));
