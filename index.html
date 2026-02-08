@@ -291,13 +291,30 @@
     }
 
     function restaurarBackup(input) {
-        const arquivo = input.files[0]; if (!arquivo) return;
-        const leitor = new FileReader();
-        leitor.onload = (e) => {
-            try { db = JSON.parse(e.target.result); save(); location.reload(); } catch(err) { alert("Erro no arquivo!"); }
-        };
-        leitor.readAsText(arquivo);
-    }
+    const arquivo = input.files[0]; 
+    if (!arquivo) return;
+    const leitor = new FileReader();
+    leitor.onload = (e) => {
+        try { 
+            const novosDados = JSON.parse(e.target.result);
+            
+            // Mantém o usuário atual logado (não sobrescreve o auth atual se ele existir)
+            if (db.auth) novosDados.auth = db.auth;
+            
+            db = novosDados;
+            save(); 
+            
+            // Em vez de reload total, apenas reseta a visão das turmas
+            limparTelaTotal();
+            renderTurmas();
+            alert("Dados Restaurados com Sucesso! ❤️"); 
+        } catch(err) { 
+            alert("Erro ao ler o arquivo de backup!"); 
+        }
+    };
+    leitor.readAsText(arquivo);
+}
+
 
     function prepararBoletim() {
         const al = db.turmas[cur.t].alunos[cur.a], tr = db.turmas[cur.t];
@@ -313,5 +330,6 @@
 </script>
 </body>
 </html>
+
 
 
