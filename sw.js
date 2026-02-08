@@ -1,54 +1,49 @@
-const CACHE_NAME = 'dcl-v5';
 
-// No GitHub Pages, não use a barra inicial '/' nos nomes dos arquivos
-// O './' ou apenas o nome do arquivo garante que ele ache na pasta do projeto
-const ASSETS_TO_CACHE = [
+const CACHE_NAME = 'diario-lucimeiri-v1';
+
+// Somente arquivos reais. O navegador cuidará do ícone embutido no index/manifest.
+const ASSETS = [
   './',
-  'index.html',
-  'manifest.json'
+  './index.html',
+  './manifest.json'
 ];
 
-// 1. Instalação: Salva arquivos no cache
+// Instalação do Service Worker
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('SW: Cache aberto e arquivos sendo armazenados');
-      return cache.addAll(ASSETS_TO_CACHE);
+      // Estratégia de cache individual para não travar se um arquivo falhar
+      return Promise.all(
+        ASSETS.map(url => {
+          return cache.add(url).catch(err => console.log('Erro ao cachear:', url));
+        })
+      );
     })
   );
-  // Força o SW a assumir o controle imediatamente sem esperar o refresh
   self.skipWaiting();
 });
 
-// 2. Ativação: Limpa versões antigas
+// Ativação e limpeza de versões antigas
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
-        cacheNames.map((cache) => {
-          if (cache !== CACHE_NAME) {
-            console.log('SW: Removendo cache antigo:', cache);
-            return caches.delete(cache);
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME) {
+            return caches.delete(cacheName);
           }
         })
       );
     })
   );
-  return self.clients.claim();
+  self.clients.claim();
 });
 
-// 3. Fetch: Responde do cache ou busca na rede
-// Essencial para o selo de "Instalável" do Chrome
+// Estratégia de carregamento: Tenta buscar na rede, se falhar, usa o cache (offline)
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      // Se encontrar no cache, retorna. Se não, busca na rede.
-      return response || fetch(event.request).catch(() => {
-        // Se a rede falhar e for uma navegação, retorna a página inicial
-        if (event.request.mode === 'navigate') {
-          return caches.match('index.html');
-        }
-      });
+    fetch(event.request).catch(() => {
+      return caches.match(event.request);
     })
   );
 });
