@@ -3,45 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Diário de Classe de Lucimeiri</title>
-
-    <!-- 1. Manifest Único -->
+    <title>Diário de Classe de Lucimeiri 👠</title>
     <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
-
-
-    <!-- Ícone para iPhone/iPad (Base64) -->
-   <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjNGEwNDFhIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==">
-
-    
-    <!-- 2. Favicon (Ícone da aba) -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjNGEwNDFhIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==">
-
-    <!-- 3. Metadados de Cor e Mobile -->
-    <meta name="theme-color" content="#4a041a">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-
-    <!-- 4. Registro do Service Worker (Apenas UMA vez) -->
-    <script>
-  if ('serviceWorker' in navigator) {
-    // 1. Criamos um ícone PNG de um SVG embutido via Canvas
-    const svgData = 'PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjNGEwNDFhIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==';
-    
-    // 2. Registramos o Service Worker normalmente
-    navigator.serviceWorker.register('./sw.js')
-      .then(reg => console.log("SW registrado!"))
-      .catch(err => console.error("Erro SW:", err));
-
-    // 3. Ouvimos o evento de instalação para o Desktop
-    window.addEventListener('beforeinstallprompt', (e) => {
-      // Impede o banner automático e força o navegador a reconhecer como APP
-      console.log('PWA pronto para instalar no Desktop');
-    });
-  }
-</script>
-
-
-    
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZTkxZTYzIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ1IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZTkxZTYzIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ1IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==">
     <style>
         :root { --sidebar: #4a041a; --bg: #fff5f8; --p: #e91e63; --p-light: #fce4ec; --txt: #4a1a2c; --err: #d81b60; }
         body, html { margin: 0; padding: 0; width: 100%; height: 100vh; font-family: 'Inter', sans-serif; overflow: hidden; color: var(--txt); }
@@ -53,35 +18,19 @@
         #app { display: flex; width: 100vw; height: 100vh; }
         .col-1 { width: 240px; background: var(--sidebar); color: white; flex-shrink: 0; display: flex; flex-direction: column; }
         .turno-select { width: 90%; margin: 10px auto; padding: 10px; background: #6b0b2b; color: white; border-radius: 10px; border: none; font-weight: 600; }
-        .turma-badge { background: rgba(255,255,255,0.1); padding: 10px; margin: 5px 10px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: 0.2s; }
+        .turma-badge { background: rgba(255,255,255,0.1); padding: 10px; margin: 5px 10px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: 0.2s; display: flex; justify-content: space-between; align-items: center; }
         .turma-badge.active { background: var(--p); font-weight: 800; }
-        
         .col-2 { width: 350px; background: white; border-right: 1px solid #f8bbd0; display: flex; flex-direction: column; }
-        
-        .aluno-card { 
-            background: var(--p-light); 
-            padding: 8px; 
-            margin: 4px 10px; 
-            border-radius: 8px; 
-            border: 1.5px solid #f06292; 
-            border-left: 5px solid #d81b60; 
-            cursor: pointer; 
-            font-size: 10px; 
-            font-weight: 700; 
-            position: relative; 
-            transition: 0.2s;
-        }
+        .aluno-card { background: var(--p-light); padding: 8px; margin: 4px 10px; border-radius: 8px; border: 1.5px solid #f06292; border-left: 5px solid #d81b60; cursor: pointer; font-size: 10px; font-weight: 700; position: relative; transition: 0.2s; display: flex; justify-content: space-between; align-items: center; }
         .aluno-card:hover { border-color: var(--p); background: #fff; }
         .aluno-card.active { background: var(--p); color: #fff; border-color: var(--sidebar); }
-        
         .col-3 { flex: 1; background: var(--bg); display: flex; flex-direction: column; overflow: hidden; }
         .header-main { padding: 15px 20px; border-bottom: 1px solid #f8bbd0; display: flex; justify-content: space-between; align-items: center; background: #fff; }
         .grid-bim { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; overflow-y: auto; flex: 1; }
         .card-bim { background: white; padding: 15px; border-radius: 15px; border-top: 4px solid var(--p); box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
         .btn-add { background: var(--sidebar); color: white; border: none; border-radius: 6px; padding: 6px 12px; cursor: pointer; font-size: 11px; font-weight: bold; }
-        
         #busca { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid #f8bbd0; box-sizing: border-box; }
-
+        .btn-bkp { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.2); border-radius: 6px; padding: 5px; cursor: pointer; font-size: 10px; margin: 2px 10px; }
         #boletim-impresso { display: none; }
         @media print {
             @page { size: portrait; margin: 1cm; }
@@ -99,7 +48,7 @@
 <body>
     <div id="auth-screen">
         <div id="auth-login" class="auth-card">
-            <h2 style="color: var(--sidebar)">Diário de Classe</h2>
+            <h2 style="color: var(--sidebar)">Diário de Classe 👠</h2>
             <input type="text" id="l-user" placeholder="Usuário">
             <input type="password" id="l-pass" placeholder="Senha">
             <button class="auth-btn" onclick="execLogin()">Entrar</button>
@@ -133,14 +82,19 @@
 
     <div id="app" class="hidden">
         <div class="col-1 no-print">
-            <div style="padding:20px; font-weight:bold; text-align:center; border-bottom:1px solid rgba(255,255,255,0.1)">LUCIMEIRI</div>
-            <select id="sel-turno" onchange="renderTurmas()" class="turno-select">
+            <div style="padding:20px; font-weight:bold; text-align:center; border-bottom:1px solid rgba(255,255,255,0.1)">LUCIMEIRI 👠</div>
+            <select id="sel-turno" onchange="mudarTurno()" class="turno-select">
                 <option value="Matutino">☀️ Matutino</option>
                 <option value="Vespertino">🌤️ Vespertino</option>
                 <option value="Noturno">🌙 Noturno</option>
             </select>
             <div style="padding:10px"><button onclick="addTurma()" class="btn-add" style="width:100%; background:white; color:var(--sidebar)">+ Turma</button></div>
-            <div id="lista-turmas"></div>
+            <div id="lista-turmas" style="flex:1; overflow-y:auto"></div>
+            <div style="padding:10px; border-top:1px solid rgba(255,255,255,0.1)">
+                <button onclick="fazerBackup()" class="btn-bkp" style="width:90%">💾 Fazer Backup</button>
+                <button onclick="document.getElementById('input-bkp').click()" class="btn-bkp" style="width:90%">📂 Restaurar Dados</button>
+                <input type="file" id="input-bkp" class="hidden" onchange="restaurarBackup(this)">
+            </div>
         </div>
         <div class="col-2 no-print">
             <div style="padding:15px; border-bottom:1px solid #f8bbd0">
@@ -151,15 +105,16 @@
         </div>
         <div class="col-3" id="print-area">
             <div id="topo-notas" class="hidden header-main no-print">
-                <div style="display:flex; align-items:center; gap:15px">
-                    <b id="nome-aluno-header" style="color: var(--sidebar); font-size: 16px"></b>
-                    <select id="sel-mat" onchange="renderNotas()" style="padding:8px; border-radius:8px; border:1px solid #f8bbd0; font-weight:700; color: var(--p)"></select>
-                    <button onclick="addMateria()" class="btn-add">+ MATÉRIA</button>
-                    <button onclick="delMateria()" style="background:none; border:none; color:var(--err); cursor:pointer">🗑️</button>
+                <div style="display:flex; align-items:center; gap:10px">
+                    <b id="nome-aluno-header" style="color: var(--sidebar); font-size: 14px"></b>
+                    <select id="sel-mat" onchange="renderNotas()" style="padding:6px; border-radius:8px; border:1px solid #f8bbd0; font-weight:700; color: var(--p)"></select>
+                    <button onclick="addMateria()" class="btn-add">+ MAT</button>
+                    <button onclick="delMateria()" style="background:none; border:none; color:var(--err); cursor:pointer; font-size:18px">🗑️</button>
                 </div>
+                <div id="mat-display-topo" style="flex:1; text-align:center; font-weight:900; color:var(--sidebar); font-size:16px"></div>
                 <div style="display:flex; gap:10px">
-                    <button onclick="window.print()" style="background:#000; color:#fff; border:none; padding:10px 15px; border-radius:8px; cursor:pointer; font-weight:800;">IMPRIMIR</button>
-                    <button onclick="execSair()" style="background:#fff; color:var(--err); border:1px solid var(--err); padding:10px; border-radius:8px; cursor:pointer;">Sair</button>
+                    <button onclick="window.print()" style="background:#000; color:#fff; border:none; padding:10px 15px; border-radius:8px; cursor:pointer; font-weight:800; font-size:11px">IMPRIMIR</button>
+                    <button onclick="execSair()" style="background:#fff; color:var(--err); border:1px solid var(--err); padding:10px; border-radius:8px; cursor:pointer; font-size:11px">Sair</button>
                 </div>
             </div>
             <div id="workspace-notas" class="hidden" style="flex:1; display:flex; flex-direction:column">
@@ -178,71 +133,80 @@
     const save = () => localStorage.setItem('edu_db_vfinal_lucimeiri', JSON.stringify(db));
     
     function showAuth(id) { document.querySelectorAll('.auth-card').forEach(c => c.classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); }
-    
     function execReg() {
         const u=document.getElementById('r-user').value, p=document.getElementById('r-pass').value, f=document.getElementById('r-phrase').value, a=document.getElementById('r-ans').value;
-        if(u && p) { 
-            if(db.auth && u === db.auth.u) { alert("Este usuário já está cadastrado!"); return; }
-            db.auth={u,p,f,a}; save(); alert("Cadastro realizado!"); showAuth('auth-login'); 
-        }
+        if(u && p) { db.auth={u,p,f,a}; save(); alert("Cadastro realizado!"); showAuth('auth-login'); }
     }
-    
     function execLogin() {
         const u=document.getElementById('l-user').value, p=document.getElementById('l-pass').value;
         if(db.auth && u===db.auth.u && p===db.auth.p) { 
             document.getElementById('auth-screen').classList.add('hidden'); 
             document.getElementById('app').classList.remove('hidden'); 
             renderTurmas();
-            setTimeout(() => alert("Deus abençoe cada dia você"), 500);
-        }
-        else alert("Acesso Negado.");
+        } else alert("Acesso Negado.");
+    }
+    function execSair() { alert("Até logo, Lucimeiri! ❤️"); location.reload(); }
+
+    function limparTelaTotal() {
+        cur.a = null;
+        document.getElementById('lista-alunos').innerHTML = '';
+        document.getElementById('topo-notas').classList.add('hidden');
+        document.getElementById('workspace-notas').classList.add('hidden');
     }
 
-    function execSair() {
-        alert("Parabens, diario atualizado com sucesso. Nunca se esqueça o quanto você é especial!");
-        location.reload();
-    }
+    function mudarTurno() { cur.t = null; limparTelaTotal(); renderTurmas(); }
 
-    function findUser() {
-        const u = document.getElementById('rec-user-find').value;
-        if(db.auth && u === db.auth.u) {
-            document.getElementById('rec-step1').classList.add('hidden');
-            document.getElementById('rec-step2').classList.remove('hidden');
-            document.getElementById('display-phrase').innerText = "Sua Pergunta: " + db.auth.f;
-        } else alert("Usuário não encontrado.");
+    function addTurma() { 
+        const n=prompt("Nome da Turma:"); 
+        if(n) { 
+            db.turmas.push({nome:n, turno:document.getElementById('sel-turno').value, materias:[], alunos:[]}); 
+            save(); limparTelaTotal(); renderTurmas(); 
+        } 
     }
-
-    function execRec() {
-        const a = document.getElementById('rec-ans-check').value, np = document.getElementById('rec-new-pass').value;
-        if(a.toLowerCase() === db.auth.a.toLowerCase() && np) { db.auth.p = np; save(); alert("Senha Alterada!"); location.reload(); }
-        else alert("Resposta Incorreta.");
-    }
-
-    function addTurma() { const n=prompt("Nome da Turma:"); if(n) { db.turmas.push({nome:n, turno:document.getElementById('sel-turno').value, materias:[], alunos:[]}); save(); renderTurmas(); } }
     
     function renderTurmas() {
         const t=document.getElementById('sel-turno').value, div=document.getElementById('lista-turmas'); div.innerHTML='';
-        const ordenadas = db.turmas.filter(tr => tr.turno === t).sort((a,b) => a.nome.localeCompare(b.nome, undefined, {numeric:true}));
-        ordenadas.forEach((tr) => { 
+        db.turmas.filter(tr => tr.turno === t).sort((a,b) => a.nome.localeCompare(b.nome, undefined, {numeric:true})).forEach((tr) => { 
             const idx = db.turmas.indexOf(tr);
-            div.innerHTML+=`<div class="turma-badge ${cur.t===idx?'active':''}" onclick="setTurma(${idx})">${tr.nome}</div>`; 
+            div.innerHTML+=`<div class="turma-badge ${cur.t===idx?'active':''}" onclick="setTurma(${idx})"><span>${tr.nome}</span><span onclick="delTurma(${idx}, event)" style="color:#ff8a80; font-weight:bold; padding-left:10px">×</span></div>`; 
         });
     }
 
-    function setTurma(i) { cur.t=i; cur.a=null; renderTurmas(); renderAlunos(); }
+    function setTurma(i) { cur.t=i; cur.a=null; 
+        document.getElementById('topo-notas').classList.add('hidden');
+        document.getElementById('workspace-notas').classList.add('hidden');
+        renderTurmas(); renderAlunos(); 
+    }
+
+    function delTurma(idx, event) {
+        event.stopPropagation();
+        if(confirm("Excluir esta TURMA?")) { 
+            db.turmas.splice(idx, 1); 
+            cur.t=null; limparTelaTotal(); save(); renderTurmas(); 
+        }
+    }
 
     function addAluno() { 
-        if(cur.t === null) { alert("Por favor, selecione uma TURMA primeiro na lista à esquerda!"); return; }
-        const n=prompt("Nome do Aluno:"); 
-        if(n) { db.turmas[cur.t].alunos.push({nome:n, notas:{}}); save(); renderAlunos(); } 
+        if(cur.t === null) return alert("Selecione uma TURMA!");
+        const n=prompt("Nome do Aluno:"); if(n) { db.turmas[cur.t].alunos.push({nome:n, notas:{}}); save(); renderAlunos(); } 
+    }
+
+    function delAluno(idx, event) {
+        event.stopPropagation();
+        if(confirm("Excluir aluno?")) { 
+            db.turmas[cur.t].alunos.splice(idx, 1); 
+            cur.a=null; 
+            document.getElementById('topo-notas').classList.add('hidden');
+            document.getElementById('workspace-notas').classList.add('hidden');
+            save(); renderAlunos(); 
+        }
     }
 
     function renderAlunos() {
         const div=document.getElementById('lista-alunos'); div.innerHTML=''; if(cur.t===null) return;
-        const ordenados = [...db.turmas[cur.t].alunos].sort((a,b) => a.nome.localeCompare(b.nome));
-        ordenados.forEach((al) => { 
+        db.turmas[cur.t].alunos.sort((a,b) => a.nome.localeCompare(b.nome)).forEach((al) => { 
             const idx = db.turmas[cur.t].alunos.indexOf(al);
-            div.innerHTML+=`<div class="aluno-card ${cur.a===idx?'active':''}" onclick="setAluno(${idx})">${al.nome.toUpperCase()}</div>`; 
+            div.innerHTML+=`<div class="aluno-card ${cur.a===idx?'active':''}" onclick="setAluno(${idx})"><span>${al.nome.toUpperCase()}</span><span onclick="delAluno(${idx}, event)" style="color:var(--err)">🗑️</span></div>`; 
         });
     }
 
@@ -252,15 +216,33 @@
     
     function atualizarMaterias() { 
         const sel=document.getElementById('sel-mat'); 
-        db.turmas[cur.t].materias.sort((a,b) => a.localeCompare(b));
-        sel.innerHTML=db.turmas[cur.t].materias.map(m=>`<option value="${m}">${m}</option>`).join(''); 
-        renderNotas(); 
+        const mats = db.turmas[cur.t].materias.sort((a,b) => a.localeCompare(b));
+        sel.innerHTML = mats.map(m=>`<option value="${m}">${m}</option>`).join('');
+        if(mats.length > 0) renderNotas();
+        else {
+            document.getElementById('workspace-notas').classList.add('hidden');
+            document.getElementById('mat-display-topo').innerText = "";
+        }
     }
     
-    function delMateria() { if(confirm("Excluir disciplina?")) { db.turmas[cur.t].materias=db.turmas[cur.t].materias.filter(x=>x!==document.getElementById('sel-mat').value); save(); atualizarMaterias(); } }
+    function delMateria() { 
+        const m = document.getElementById('sel-mat').value;
+        if(!m) return;
+        if(confirm(`Excluir a matéria "${m}"?`)) { 
+            db.turmas[cur.t].materias = db.turmas[cur.t].materias.filter(x => x !== m); 
+            save(); 
+            atualizarMaterias(); 
+        } 
+    }
     
     function renderNotas() {
-        const m=document.getElementById('sel-mat').value; if(!m) return;
+        const m=document.getElementById('sel-mat').value; 
+        if(!m) {
+            document.getElementById('workspace-notas').classList.add('hidden');
+            return;
+        }
+        document.getElementById('workspace-notas').classList.remove('hidden');
+        document.getElementById('mat-display-topo').innerText = m.toUpperCase();
         const al=db.turmas[cur.t].alunos[cur.a]; let total=0; document.getElementById('grid-notas').innerHTML='';
         for(let b=1; b<=4; b++) {
             const key=`${m}_b${b}`, notas=al.notas[key] || []; const soma=notas.reduce((s,n)=>s+parseFloat(n.v),0); total+=soma;
@@ -274,39 +256,33 @@
         const al=db.turmas[cur.t].alunos[cur.a]; if(!al.notas[key]) al.notas[key]=[]; 
         const soma=al.notas[key].reduce((s,n)=>s+parseFloat(n.v),0);
         const d=prompt("Avaliação:"); const v=parseFloat(prompt("Nota:"));
-        if(d && !isNaN(v)) { if((soma+v) <= 25.1) { al.notas[key].push({d, v}); save(); renderNotas(); } else alert("Valor excedido a 25 pontos!"); }
+        if(d && !isNaN(v)) { if((soma+v) <= 25.1) { al.notas[key].push({d, v}); save(); renderNotas(); } else alert("Limite de 25 pontos!"); }
     }
-
     function delNota(key, ni) { if(confirm("Excluir nota?")) { db.turmas[cur.t].alunos[cur.a].notas[key].splice(ni,1); save(); renderNotas(); } }
-    
     function filtrar() { const v=document.getElementById('busca').value.toLowerCase(); document.querySelectorAll('.aluno-card').forEach(e=>e.style.display=e.innerText.toLowerCase().includes(v)?'block':'none'); }
-    
+    function fazerBackup() {
+        const dados = JSON.stringify(db); const blob = new Blob([dados], { type: 'text/plain' });
+        const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+        a.download = `backup_diario_lucimeiri_${new Date().toLocaleDateString().replace(/\//g,'-')}.txt`; a.click();
+    }
+    function restaurarBackup(input) {
+        const arquivo = input.files[0]; if (!arquivo) return;
+        const leitor = new FileReader();
+        leitor.onload = (e) => {
+            try { db = JSON.parse(e.target.result); save(); mudarTurno(); alert("Dados Restaurados!"); } catch(err) { alert("Erro no arquivo!"); }
+        };
+        leitor.readAsText(arquivo);
+    }
     function prepararBoletim() {
         const al = db.turmas[cur.t].alunos[cur.a], tr = db.turmas[cur.t];
-        let html = `<h2>BOLETIM - ${al.nome.toUpperCase()}</h2><p style="text-align:center">PROFESSORA: LUCIMEIRI</p>
-                    <table><thead><tr><th>MATÉRIA</th><th>1ºB</th><th>2ºB</th><th>3ºB</th><th>4ºB</th><th>TOTAL</th><th>SITUAÇÃO</th></tr></thead><tbody>`;
+        let html = `<h2>BOLETIM - ${al.nome.toUpperCase()}</h2><p style="text-align:center">PROFESSORA: LUCIMEIRI </p><table><thead><tr><th>MATÉRIA</th><th>1ºB</th><th>2ºB</th><th>3ºB</th><th>4ºB</th><th>TOTAL</th><th>SITUAÇÃO</th></tr></thead><tbody>`;
         tr.materias.forEach(m => {
-            const b1=(al.notas[m+'_b1']||[]).reduce((s,n)=>s+n.v,0), b2=(al.notas[m+'_b2']||[]).reduce((s,n)=>s+n.v,0);
-            const b3=(al.notas[m+'_b3']||[]).reduce((s,n)=>s+n.v,0), b4=(al.notas[m+'_b4']||[]).reduce((s,n)=>s+n.v,0);
-            const total = b1+b2+b3+b4;
+            const b1=(al.notas[m+'_b1']||[]).reduce((s,n)=>s+n.v,0), b2=(al.notas[m+'_b2']||[]).reduce((s,n)=>s+n.v,0), b3=(al.notas[m+'_b3']||[]).reduce((s,n)=>s+n.v,0), b4=(al.notas[m+'_b4']||[]).reduce((s,n)=>s+n.v,0), total = b1+b2+b3+b4;
             html += `<tr><td>${m.toUpperCase()}</td><td>${b1.toFixed(1)}</td><td>${b2.toFixed(1)}</td><td>${b3.toFixed(1)}</td><td>${b4.toFixed(1)}</td><td><b>${total.toFixed(1)}</b></td><td>${total>=70?'APROVADO':'REPROVADO'}</td></tr>`;
         });
         document.getElementById('boletim-impresso').innerHTML = html + `</tbody></table>`;
     }
-
-    if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js').catch(()=>{}); }
     window.onload = () => { showAuth('auth-login'); };
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
