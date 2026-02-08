@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Diário de Classe de Lucimeiri 👠</title>
-    <link rel="manifest" href="manifest.json" crossorigin="use-credentials">
-    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZTkxZTYzIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ1IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZTkxZTYzIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ1IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==">
     <style>
         :root { --sidebar: #4a041a; --bg: #fff5f8; --p: #e91e63; --p-light: #fce4ec; --txt: #4a1a2c; --err: #d81b60; }
         body, html { margin: 0; padding: 0; width: 100%; height: 100vh; font-family: 'Inter', sans-serif; overflow: hidden; color: var(--txt); }
@@ -22,7 +19,6 @@
         .turma-badge.active { background: var(--p); font-weight: 800; }
         .col-2 { width: 350px; background: white; border-right: 1px solid #f8bbd0; display: flex; flex-direction: column; }
         .aluno-card { background: var(--p-light); padding: 8px; margin: 4px 10px; border-radius: 8px; border: 1.5px solid #f06292; border-left: 5px solid #d81b60; cursor: pointer; font-size: 10px; font-weight: 700; position: relative; transition: 0.2s; display: flex; justify-content: space-between; align-items: center; }
-        .aluno-card:hover { border-color: var(--p); background: #fff; }
         .aluno-card.active { background: var(--p); color: #fff; border-color: var(--sidebar); }
         .col-3 { flex: 1; background: var(--bg); display: flex; flex-direction: column; overflow: hidden; }
         .header-main { padding: 15px 20px; border-bottom: 1px solid #f8bbd0; display: flex; justify-content: space-between; align-items: center; background: #fff; }
@@ -35,13 +31,10 @@
         @media print {
             @page { size: portrait; margin: 1cm; }
             body * { visibility: hidden; }
-            #print-area, #print-area * { visibility: visible; }
-            #print-area { position: absolute; left: 0; top: 0; width: 100%; }
-            .no-print { display: none !important; }
-            #boletim-impresso { display: block !important; width: 100%; color: black; }
+            #boletim-impresso, #boletim-impresso * { visibility: visible; }
+            #boletim-impresso { position: absolute; left: 0; top: 0; width: 100%; display: block !important; color: black; }
             table { width: 100%; border-collapse: collapse; margin-top: 15px; }
             th, td { border: 1px solid #000; padding: 8px; text-align: center; font-size: 12px; }
-            th { background: #f2f2f2 !important; }
         }
     </style>
 </head>
@@ -83,7 +76,10 @@
 
     <div id="app" class="hidden">
         <div class="col-1 no-print">
-            <div style="padding:20px; font-weight:bold; text-align:center; border-bottom:1px solid rgba(255,255,255,0.1)">LUCIMEIRI 👠</div>
+            <div style="padding:15px; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-weight:bold; font-size:12px">LUCIMEIRI 👠</span>
+                <button onclick="execSair()" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.3); padding:4px 8px; border-radius:5px; cursor:pointer; font-size:10px">SAIR</button>
+            </div>
             <select id="sel-turno" onchange="mudarTurno()" class="turno-select">
                 <option value="Matutino">☀️ Matutino</option>
                 <option value="Vespertino">🌤️ Vespertino</option>
@@ -115,7 +111,6 @@
                 <div id="mat-display-topo" style="flex:1; text-align:center; font-weight:900; color:var(--sidebar); font-size:16px"></div>
                 <div style="display:flex; gap:10px">
                     <button onclick="window.print()" style="background:#000; color:#fff; border:none; padding:10px 15px; border-radius:8px; cursor:pointer; font-weight:800; font-size:11px">IMPRIMIR</button>
-                    <button onclick="execSair()" style="background:#fff; color:var(--err); border:1px solid var(--err); padding:10px; border-radius:8px; cursor:pointer; font-size:11px">Sair</button>
                 </div>
             </div>
             <div id="workspace-notas" class="hidden" style="flex:1; display:flex; flex-direction:column">
@@ -137,13 +132,20 @@
     
     function execReg() {
         const u=document.getElementById('r-user').value, p=document.getElementById('r-pass').value, f=document.getElementById('r-phrase').value, a=document.getElementById('r-ans').value;
-        if(u && p) { db.auth={u,p,f,a}; save(); alert("Cadastro realizado!"); showAuth('auth-login'); }
+        
+        if(db.auth && u === db.auth.u) {
+            alert("Este usuário já está cadastrado! ❤️👠");
+            showAuth('auth-login');
+            return;
+        }
+
+        if(u && p) { db.auth={u,p,f,a}; save(); alert("Cadastro realizado com sucesso! ❤️"); showAuth('auth-login'); }
     }
     
     function execLogin() {
         const u=document.getElementById('l-user').value, p=document.getElementById('l-pass').value;
         if(db.auth && u===db.auth.u && p===db.auth.p) { 
-            alert("Bem-vinda, Lucimeiri! 👠️"); // MENSAGEM DE BOAS VINDAS
+            alert("Bem-vinda, Lucimeiri! ❤️");
             document.getElementById('auth-screen').classList.add('hidden'); 
             document.getElementById('app').classList.remove('hidden'); 
             renderTurmas();
@@ -168,7 +170,7 @@
         } else { alert("Resposta incorreta!"); }
     }
 
-    function execSair() { alert("Nunca esqueça o quanto você é maravilhosa! ❤️"); location.reload(); }
+    function execSair() { alert("Nunca esqueça o quanto você é especial ❤️!"); location.reload(); }
 
     function limparTelaTotal() {
         cur.a = null;
@@ -281,7 +283,7 @@
     }
 
     function restaurarBackup(input) {
-        const arquivo = input.files; if (!arquivo) return;
+        const arquivo = input.files[0]; if (!arquivo) return;
         const leitor = new FileReader();
         leitor.onload = (e) => {
             try { db = JSON.parse(e.target.result); save(); location.reload(); } catch(err) { alert("Erro no arquivo!"); }
