@@ -1,17 +1,17 @@
-
 {
-  "name": "Diário de Classe de Lucimeiri",
-  "short_name": "Diário DCL",
-  "start_url": "index.html",
+  "name": "Diário de Classe Lucimeiri",
+  "short_name": "DCL 👠",
+  "description": "Sistema de Diário de Classe - Lucimeiri",
+  "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#fff5f8",
-  "theme_color": "#4a041a",
+  "background_color": "#4a041a",
+  "theme_color": "#e91e63",
   "icons": [
     {
-      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZTkxZTYzIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ1IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==",
-      "sizes": "192x192 512x512",
+      "src": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cmVjdCB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgcng9IjgwIiBmaWxsPSIjZTkxZTYzIi8+PHRleHQgeD0iNTAlIiB5PSI2NSUiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjMwIiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==",
+      "sizes": "512x512",
       "type": "image/svg+xml",
-      "purpose": "any"
+      "purpose": "any maskable"
     }
   ]
 }
