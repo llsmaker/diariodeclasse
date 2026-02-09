@@ -4,53 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Diário de Classe de Lucimeiri 👠</title>
-    
-    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZTkxZTYzIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ1IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjIwIiBmaWxsPSIjZTkxZTYzIi8+PHRleHQgeD0iNTAiIHk9IjY1IiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjQ1IiBmb250LXdlaWdodD0iYm9sZCIgdGV4dC1hbmNob3I9Im1pZGRsZSI+RENMPC90ZXh0Pjwvc3ZnPg==">
-
     <style>
         :root { --sidebar: #4a041a; --bg: #fff5f8; --p: #e91e63; --p-light: #fce4ec; --txt: #4a1a2c; --err: #d81b60; --border: #f06292; }
         body, html { margin: 0; padding: 0; width: 100%; height: 100vh; font-family: 'Inter', sans-serif; overflow: hidden; color: var(--txt); background: var(--bg); }
         .hidden { display: none !important; }
-        
         #auth-screen { position: fixed; inset: 0; background: var(--sidebar); display: flex; align-items: center; justify-content: center; z-index: 10000; }
         .auth-card { background: white; padding: 30px; border-radius: 20px; width: 340px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); text-align: center; border: 2px solid var(--p); }
         .auth-btn { width: 100%; padding: 12px; border-radius: 10px; border: none; background: var(--p); color: white; font-weight: 800; cursor: pointer; margin-top: 10px; }
         .auth-card input { width: 100%; padding: 10px; margin: 8px 0; border: 1.5px solid #f8bbd0; border-radius: 10px; box-sizing: border-box; }
-
         #app { display: flex; width: 100vw; height: 100vh; }
         .col-1 { width: 240px; background: var(--sidebar); color: white; flex-shrink: 0; display: flex; flex-direction: column; }
         .turno-select { width: 90%; margin: 10px auto; padding: 10px; background: #6b0b2b; color: white; border-radius: 10px; border: none; font-weight: 600; cursor: pointer; border: 1px solid var(--p); }
         .turma-badge { background: rgba(255,255,255,0.1); padding: 10px; margin: 5px 10px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: 0.2s; display: flex; justify-content: space-between; align-items: center; border: 1px solid transparent; }
         .turma-badge.active { background: var(--p); font-weight: 800; border-color: white; }
-        
         .col-2 { width: 320px; background: white; border-right: 2px solid var(--p-light); display: flex; flex-direction: column; }
         .aluno-card { background: var(--p-light); padding: 10px; margin: 5px 10px; border-radius: 8px; border: 1.5px solid var(--border); border-left-width: 6px; cursor: pointer; font-size: 11px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; transition: 0.2s; }
         .aluno-card.active { background: var(--p); color: #fff; border-color: var(--sidebar); }
-
         .col-3 { flex: 1; background: var(--bg); display: flex; flex-direction: column; overflow: hidden; }
         .header-main { padding: 15px 20px; border-bottom: 2px solid var(--p-light); display: flex; justify-content: space-between; align-items: center; background: #fff; }
-
         .grid-bim { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; overflow-y: auto; flex: 1; }
         .card-bim { background: white; padding: 15px; border-radius: 15px; border: 2px solid var(--border); border-top-width: 8px; border-top-color: var(--p); box-shadow: 0 4px 12px rgba(233, 30, 99, 0.1); display: flex; flex-direction: column; }
-        
         .container-notas-bim { display: flex; flex-direction: column; gap: 8px; margin: 12px 0; max-height: 160px; overflow-y: auto; padding-right: 5px; }
         .mini-card-nota { background: var(--p-light); border-radius: 8px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; border: 1.5px solid var(--border); box-shadow: 1px 1px 3px rgba(0,0,0,0.05); }
-        
         .btn-add { background: var(--sidebar); color: white; border: none; border-radius: 6px; padding: 8px 12px; cursor: pointer; font-size: 11px; font-weight: bold; border: 1px solid var(--p); }
         #busca { width: 100%; padding: 10px; border-radius: 8px; border: 1.5px solid var(--border); box-sizing: border-box; margin-top: 10px; }
         .btn-bkp { background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.4); border-radius: 6px; padding: 8px; cursor: pointer; font-size: 10px; margin: 2px 10px; }
-
-        .container-notas-bim::-webkit-scrollbar { width: 6px; }
-        .container-notas-bim::-webkit-scrollbar-thumb { background: var(--p); border-radius: 10px; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; background: white; }
+        th, td { border: 1.5px solid #000; padding: 8px; text-align: center; font-size: 12px; color: black; }
+        th { background: #f5f5f5; }
+        .situacao-aprovado { color: green !important; font-weight: bold; }
+        .situacao-reprovado { color: red !important; font-weight: bold; }
 
         @media print {
             .no-print { display: none !important; }
-            #boletim-impresso { display: block !important; color: black; background: white; padding: 10px; font-size: 12px; }
-            table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-            th, td { border: 1.5px solid #000; padding: 6px; text-align: center; }
-            .situacao-aprovado { color: #000; font-weight: bold; }
-            .situacao-reprovado { color: #000; font-style: italic; }
+            #app { display: block; }
+            .col-3 { width: 100%; overflow: visible; }
+            #boletim-impresso { display: block !important; }
+            #mat-display-topo { display: none !important; }
         }
     </style>
 </head>
@@ -65,7 +56,6 @@
         <p onclick="showAuth('auth-reg')" style="cursor:pointer; font-size:12px; color:var(--p); margin-top:15px; font-weight: bold;">Cadastrar Nova Conta</p>
         <p onclick="showAuth('auth-rec')" style="cursor:pointer; font-size:12px; color:#9c27b0; margin-top:10px">Esqueci minha senha</p>
     </div>
-    
     <div id="auth-reg" class="auth-card hidden">
         <h2 style="color: var(--sidebar)">Novo Registro</h2>
         <input type="text" id="r-user" placeholder="Usuário">
@@ -75,68 +65,40 @@
         <button class="auth-btn" onclick="execReg()">Salvar</button>
         <p onclick="showAuth('auth-login')" style="cursor:pointer; font-size:12px; margin-top:15px">Voltar</p>
     </div>
-
     <div id="auth-rec" class="auth-card hidden">
         <h2 style="color: var(--sidebar)">Recuperar</h2>
-        <div id="rec-step1">
-            <input type="text" id="rec-user-find" placeholder="Usuário">
-            <button class="auth-btn" onclick="findUser()">Ver Pergunta</button>
-        </div>
-        <div id="rec-step2" class="hidden">
-            <p id="display-phrase" style="font-weight:bold; color:var(--p); margin:10px 0"></p>
-            <input type="text" id="rec-ans-check" placeholder="Sua Resposta">
-            <input type="password" id="rec-new-pass" placeholder="Nova Senha">
-            <button class="auth-btn" onclick="execRec()">Redefinir</button>
-        </div>
+        <div id="rec-step1"><input type="text" id="rec-user-find" placeholder="Usuário"><button class="auth-btn" onclick="findUser()">Ver Pergunta</button></div>
+        <div id="rec-step2" class="hidden"><p id="display-phrase" style="font-weight:bold; color:var(--p); margin:10px 0"></p><input type="text" id="rec-ans-check" placeholder="Sua Resposta"><input type="password" id="rec-new-pass" placeholder="Nova Senha"><button class="auth-btn" onclick="execRec()">Redefinir</button></div>
         <p onclick="showAuth('auth-login')" style="cursor:pointer; font-size:12px; margin-top:15px">Cancelar</p>
     </div>
 </div>
 
 <div id="app" class="hidden">
     <div class="col-1 no-print">
-        <div style="padding:15px; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;">
-            <span style="font-weight:bold; font-size:12px">LUCIMEIRI 👠</span>
-            <button onclick="execSair()" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.3); padding:4px 8px; border-radius:5px; cursor:pointer; font-size:10px">SAIR</button>
-        </div>
-        <select id="sel-turno" onchange="mudarTurno()" class="turno-select">
-            <option value="Matutino">☀️ Matutino</option>
-            <option value="Vespertino">🌤️ Vespertino</option>
-        </select>
+        <div style="padding:15px; border-bottom:1px solid rgba(255,255,255,0.1); display:flex; justify-content:space-between; align-items:center;"><span style="font-weight:bold; font-size:12px">LUCIMEIRI 👠</span><button onclick="execSair()" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.3); padding:4px 8px; border-radius:5px; cursor:pointer; font-size:10px">SAIR</button></div>
+        <select id="sel-turno" onchange="mudarTurno()" class="turno-select"><option value="Matutino">☀️ Matutino</option><option value="Vespertino">🌤️ Vespertino</option></select>
         <div style="padding:10px"><button onclick="addTurma()" class="btn-add" style="width:100%; background:white; color:var(--sidebar)">+ TURMA</button></div>
         <div id="lista-turmas" style="flex:1; overflow-y:auto"></div>
-        <div style="padding:10px; border-top:1px solid rgba(255,255,255,0.1)">
-            <button onclick="fazerBackup()" class="btn-bkp" style="width:90%">💾 Fazer Backup</button>
-            <button onclick="document.getElementById('input-bkp').click()" class="btn-bkp" style="width:90%">📂 Restaurar</button>
-            <input type="file" id="input-bkp" class="hidden" onchange="restaurarBackup(this)">
-        </div>
+        <div style="padding:10px; border-top:1px solid rgba(255,255,255,0.1)"><button onclick="fazerBackup()" class="btn-bkp" style="width:90%">💾 Fazer Backup</button><button onclick="document.getElementById('input-bkp').click()" class="btn-bkp" style="width:90%">📂 Restaurar</button><input type="file" id="input-bkp" class="hidden" onchange="restaurarBackup(this)"></div>
     </div>
-
     <div class="col-2 no-print">
-        <div style="padding:15px; border-bottom:2px solid var(--p-light)">
-            <button onclick="addAluno()" class="btn-add" style="width:100%">CADASTRAR ALUNO</button>
-            <input type="text" id="busca" placeholder="Buscar aluno..." onkeyup="filtrar()">
-        </div>
+        <div style="padding:15px; border-bottom:2px solid var(--p-light)"><button onclick="addAluno()" class="btn-add" style="width:100%">CADASTRAR ALUNO</button><input type="text" id="busca" placeholder="Buscar aluno..." onkeyup="filtrar()"></div>
         <div id="lista-alunos" style="overflow-y:auto; flex:1"></div>
     </div>
-
     <div class="col-3">
         <div id="topo-notas" class="hidden header-main no-print">
             <div style="display:flex; align-items:center; gap:10px">
-                <b id="nome-aluno-header" style="color: var(--sidebar); font-size: 14px"></b>
                 <select id="sel-mat" onchange="renderNotas()" style="padding:6px; border-radius:8px; border:1.5px solid var(--border); font-weight:700; color: var(--p)"></select>
-                <button onclick="addMateria()" class="btn-add">+ MAT</button>
+                <button onclick="addMateria()" class="btn-add">ADICIONAR MATÉRIA</button>
                 <button onclick="delMateria()" style="background:none; border:none; color:var(--err); cursor:pointer; font-size:18px">🗑️</button>
             </div>
             <button onclick="prepararBoletim(); window.print();" style="background:#000; color:#fff; border:none; padding:10px 15px; border-radius:8px; cursor:pointer; font-weight:800; font-size:11px">IMPRIMIR</button>
         </div>
-
         <div id="workspace-notas" class="hidden" style="flex:1; display:flex; flex-direction:column">
             <div id="mat-display-topo" style="padding:10px; text-align:center; font-weight:900; color:var(--sidebar); font-size:16px; background:#fff; border-bottom: 1.5px solid var(--p-light)"></div>
             <div class="grid-bim no-print" id="grid-notas"></div>
-            <div id="boletim-impresso" class="hidden"></div>
-            <div class="no-print" style="padding:20px; background:#fff; border-top:2px solid var(--p-light); text-align:right">
-                <div id="total-anual-txt" style="font-weight:800; font-size: 24px; color: var(--sidebar)"></div>
-            </div>
+            <div id="boletim-impresso" class="hidden" style="padding: 20px;"></div>
+            <div class="no-print" style="padding:20px; background:#fff; border-top:2px solid var(--p-light); text-align:right"><div id="total-anual-txt" style="font-weight:800; font-size: 24px; color: var(--sidebar)"></div></div>
         </div>
     </div>
 </div>
@@ -146,72 +108,52 @@
     let cur = { t: null, a: null };
     const save = () => localStorage.setItem('edu_db_vfinal_lucimeiri', JSON.stringify(db));
 
-    function showAuth(id) { 
-        document.querySelectorAll('.auth-card').forEach(c => c.classList.add('hidden')); 
-        document.getElementById(id).classList.remove('hidden'); 
-    }
-
+    function showAuth(id) { document.querySelectorAll('.auth-card').forEach(c => c.classList.add('hidden')); document.getElementById(id).classList.remove('hidden'); }
     function execReg() {
         const u=document.getElementById('r-user').value, p=document.getElementById('r-pass').value, f=document.getElementById('r-phrase').value, a=document.getElementById('r-ans').value;
         if(db.auth && u === db.auth.u) { alert("Este usuário já existe!"); return; }
         if(u && p) { db.auth={u,p,f,a}; save(); alert("Cadastro realizado! ❤️"); showAuth('auth-login'); }
     }
-
     function execLogin() {
         const u=document.getElementById('l-user').value, p=document.getElementById('l-pass').value;
         if(db.auth && u===db.auth.u && p===db.auth.p) {
+            alert("Bem-vinda, Lucimeiri! Deus te abençoe cada dia 🙏");
             document.getElementById('auth-screen').classList.add('hidden');
             document.getElementById('app').classList.remove('hidden');
             renderTurmas();
         } else alert("Acesso Negado.");
     }
-
     function findUser() {
         const u = document.getElementById('rec-user-find').value;
-        if(db.auth && u === db.auth.u) {
-            document.getElementById('display-phrase').innerText = "Pergunta: " + db.auth.f;
-            document.getElementById('rec-step1').classList.add('hidden');
-            document.getElementById('rec-step2').classList.remove('hidden');
-        } else alert("Usuário não encontrado!");
+        if(db.auth && u === db.auth.u) { document.getElementById('display-phrase').innerText = "Pergunta: " + db.auth.f; document.getElementById('rec-step1').classList.add('hidden'); document.getElementById('rec-step2').classList.remove('hidden'); } else alert("Usuário não encontrado!");
     }
-
     function execRec() {
         const ans = document.getElementById('rec-ans-check').value, newP = document.getElementById('rec-new-pass').value;
-        if(db.auth && ans.toLowerCase() === db.auth.a.toLowerCase()) {
-            db.auth.p = newP; save(); alert("Senha redefinida!"); location.reload();
-        } else alert("Resposta incorreta!");
+        if(db.auth && ans.toLowerCase() === db.auth.a.toLowerCase()) { db.auth.p = newP; save(); alert("Senha redefinida!"); location.reload(); } else alert("Resposta incorreta!");
     }
-
     function execSair() { alert("Nunca esqueça o quanto você é especial ❤️!"); location.reload(); }
     function mudarTurno() { cur.t = null; cur.a = null; document.getElementById('topo-notas').classList.add('hidden'); document.getElementById('workspace-notas').classList.add('hidden'); renderTurmas(); }
     function addTurma() { const n=prompt("Nome da Turma:"); if(n) { db.turmas.push({nome:n, turno:document.getElementById('sel-turno').value, materias:[], alunos:[]}); save(); renderTurmas(); } }
-    
     function renderTurmas() {
         const t=document.getElementById('sel-turno').value, div=document.getElementById('lista-turmas'); div.innerHTML='';
         db.turmas.filter(tr => tr.turno === t).forEach((tr) => { const realIdx = db.turmas.indexOf(tr); div.innerHTML+=`<div class="turma-badge ${cur.t===realIdx?'active':''}" onclick="setTurma(${realIdx})"><span>${tr.nome}</span><span onclick="delTurma(${realIdx}, event)" style="color:#ff8a80; font-weight:bold; padding:0 5px;">×</span></div>`; });
     }
-
     function setTurma(i) { cur.t=i; cur.a=null; renderTurmas(); renderAlunos(); }
     function delTurma(idx, event) { event.stopPropagation(); if(confirm("Excluir esta TURMA?")) { db.turmas.splice(idx, 1); cur.t=null; save(); renderTurmas(); } }
     function addAluno() { if(cur.t === null) return alert("Selecione uma TURMA!"); const n=prompt("Nome do Aluno:"); if(n) { db.turmas[cur.t].alunos.push({nome:n, notas:{}}); save(); renderAlunos(); } }
-    
     function renderAlunos() {
         const div=document.getElementById('lista-alunos'); div.innerHTML=''; if(cur.t===null) return;
         db.turmas[cur.t].alunos.sort((a,b) => a.nome.localeCompare(b.nome)).forEach((al, idx) => { div.innerHTML+=`<div class="aluno-card ${cur.a===idx?'active':''}" onclick="setAluno(${idx})"><span>${al.nome.toUpperCase()}</span><span onclick="delAluno(${idx}, event)">🗑️</span></div>`; });
     }
-
-    function setAluno(i) { cur.a=i; document.getElementById('nome-aluno-header').innerText=db.turmas[cur.t].alunos[i].nome; document.getElementById('topo-notas').classList.remove('hidden'); renderAlunos(); atualizarMaterias(); }
+    function setAluno(i) { cur.a=i; document.getElementById('topo-notas').classList.remove('hidden'); renderAlunos(); atualizarMaterias(); }
     function delAluno(idx, event) { event.stopPropagation(); if(confirm("Excluir aluno?")) { db.turmas[cur.t].alunos.splice(idx, 1); cur.a=null; save(); renderAlunos(); } }
     function addMateria() { const n=prompt("Matéria:"); if(n) { db.turmas[cur.t].materias.push(n); save(); atualizarMaterias(); } }
-    
     function atualizarMaterias() { 
         const sel=document.getElementById('sel-mat'); const mats = db.turmas[cur.t].materias;
         sel.innerHTML = mats.map(m=>`<option value="${m}">${m}</option>`).join('');
         if(mats.length > 0) renderNotas(); else document.getElementById('workspace-notas').classList.add('hidden');
     }
-
     function delMateria() { const m = document.getElementById('sel-mat').value; if(m && confirm(`Excluir ${m}?`)) { db.turmas[cur.t].materias = db.turmas[cur.t].materias.filter(x => x !== m); save(); atualizarMaterias(); } }
-    
     function renderNotas() {
         const m=document.getElementById('sel-mat').value; if(!m) return;
         document.getElementById('workspace-notas').classList.remove('hidden');
@@ -223,7 +165,6 @@
         }
         document.getElementById('total-anual-txt').innerText=`TOTAL ANUAL: ${totalAnual.toFixed(1).replace('.',',')} / 100`;
     }
-
     function addNota(key) {
         const al=db.turmas[cur.t].alunos[cur.a]; if(!al.notas[key]) al.notas[key]=[]; const soma=al.notas[key].reduce((s,n)=>s+parseFloat(n.v),0);
         const d=prompt("Descrição:"); let v_in = prompt("Nota:");
@@ -233,22 +174,16 @@
     function filtrar() { const v=document.getElementById('busca').value.toLowerCase(); document.querySelectorAll('.aluno-card').forEach(e=> { e.style.display = e.innerText.toLowerCase().includes(v) ? 'flex' : 'none'; }); }
     function fazerBackup() { const blob = new Blob([JSON.stringify(db)], { type: 'text/plain' }); const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = `backup_diario.txt`; a.click(); }
     function restaurarBackup(input) { const reader = new FileReader(); reader.onload = (e) => { try { db = JSON.parse(e.target.result); save(); location.reload(); } catch(err) { alert("Erro!"); } }; reader.readAsText(input.files); }
-
     function prepararBoletim() {
         const al = db.turmas[cur.t].alunos[cur.a], tr = db.turmas[cur.t];
         let html = `<div style="text-align:center"><h2>BOLETIM ESCOLAR</h2><p>ALUNO: <b>${al.nome.toUpperCase()}</b> | TURMA: <b>${tr.nome}</b></p><table><thead><tr><th>MATÉRIA</th><th>1ºB</th><th>2ºB</th><th>3ºB</th><th>4ºB</th><th>TOTAL</th><th>SITUAÇÃO</th></tr></thead><tbody>`;
         tr.materias.forEach(m => {
-            const b1=(al.notas[m+'_b1']||[]).reduce((s,n)=>s+parseFloat(n.v),0);
-            const b2=(al.notas[m+'_b2']||[]).reduce((s,n)=>s+parseFloat(n.v),0);
-            const b3=(al.notas[m+'_b3']||[]).reduce((s,n)=>s+parseFloat(n.v),0);
-            const b4=(al.notas[m+'_b4']||[]).reduce((s,n)=>s+parseFloat(n.v),0);
-            const total = b1+b2+b3+b4;
-            const situacao = total >= 70 ? 'APROVADO' : 'REPROVADO';
-            html += `<tr><td style="text-align:left"><b>${m.toUpperCase()}</b></td><td>${b1.toFixed(1).replace('.',',')}</td><td>${b2.toFixed(1).replace('.',',')}</td><td>${b3.toFixed(1).replace('.',',')}</td><td>${b4.toFixed(1).replace('.',',')}</td><td><b>${total.toFixed(1).replace('.',',')}</b></td><td class="${total>=70?'situacao-aprovado':'situacao-reprovado'}">${situacao}</td></tr>`;
+            const b1=(al.notas[m+'_b1']||[]).reduce((s,n)=>s+parseFloat(n.v),0); const b2=(al.notas[m+'_b2']||[]).reduce((s,n)=>s+parseFloat(n.v),0); const b3=(al.notas[m+'_b3']||[]).reduce((s,n)=>s+parseFloat(n.v),0); const b4=(al.notas[m+'_b4']||[]).reduce((s,n)=>s+parseFloat(n.v),0);
+            const total = b1+b2+b3+b4; const situacao = total >= 60 ? 'APROVADO' : 'REPROVADO';
+            html += `<tr><td style="text-align:left"><b>${m.toUpperCase()}</b></td><td>${b1.toFixed(1).replace('.',',')}</td><td>${b2.toFixed(1).replace('.',',')}</td><td>${b3.toFixed(1).replace('.',',')}</td><td>${b4.toFixed(1).replace('.',',')}</td><td><b>${total.toFixed(1).replace('.',',')}</b></td><td class="${total>=60?'situacao-aprovado':'situacao-reprovado'}">${situacao}</td></tr>`;
         });
         document.getElementById('boletim-impresso').innerHTML = html + `</tbody></table><p style="margin-top:20px; font-size:10px">Emitido em: ${new Date().toLocaleDateString()}</p></div>`;
     }
-
     window.onload = () => { if(db.auth) showAuth('auth-login'); else showAuth('auth-reg'); };
 </script>
 </body>
